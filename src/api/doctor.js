@@ -1,8 +1,8 @@
 import request from '@/utils/request'
 
-export function physicalexaminationApplySubmit(data) {
+export function changePassword(data) {
   return request({
-    url: '/medicare/physicalexaminationApplySubmit',
+    url: '/web/changePassword',
     method: 'POST',
     data: data
   })
