@@ -8,9 +8,9 @@
             <el-input v-model="editForm.perName"></el-input>
           </el-form-item>
         </el-col>
-        <el-col :span="10">
+        <el-col :span="9">
           <el-form-item label="性别">
-            <el-select v-model="editForm.sex" >
+            <el-select v-model="editForm.sex" style="width: 100%">
             </el-select>
           </el-form-item>
         </el-col>
@@ -23,6 +23,7 @@
               type="date"
               value-format="yyyy-MM-dd"
               placeholder="选择日期时间"
+              style="width: 100%"
             />
           </el-form-item>
         </el-col>
@@ -35,12 +36,12 @@
       <el-row>
         <el-col :span="9">
           <el-form-item label="民族" prop="groupName" >
-            <el-select v-model="editForm.peopleCode"></el-select>
+            <el-select v-model="editForm.peopleCode" style="width: 100%"></el-select>
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item label="政治面貌">
-            <el-select v-model="editForm.politicalStatus"></el-select>
+            <el-select v-model="editForm.politicalStatus" style="width: 100%"></el-select>
           </el-form-item>
         </el-col>
       </el-row>
@@ -64,7 +65,7 @@
         </el-col>
         <el-col :span="9">
           <el-form-item label="职称">
-            <el-select v-model="editForm.grade"></el-select>
+            <el-select v-model="editForm.grade" style="width: 100%"></el-select>
           </el-form-item>
         </el-col>
       </el-row>
@@ -107,7 +108,7 @@
       <el-row>
         <el-col :span="9">
           <el-form-item label="本科学习形式" prop="groupName" >
-            <el-select v-model="editForm.bachelorStudy"></el-select>
+            <el-select v-model="editForm.bachelorStudy" style="width: 100%"></el-select>
           </el-form-item>
         </el-col>
         <el-col :span="9">
@@ -119,14 +120,14 @@
       <el-row>
         <el-col :span="9">
           <el-form-item label="硕士毕业学校" prop="groupName" >
-            <el-select v-model="editForm.gradSchool"></el-select>
+            <el-select v-model="editForm.gradSchool" style="width: 100%"></el-select>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
           <el-form-item label="硕士毕业专业" prop="groupName" >
-            <el-select v-model="editForm.gradMajor"></el-select>
+            <el-select v-model="editForm.gradMajor" style="width: 100%"></el-select>
           </el-form-item>
         </el-col>
         <el-col :span="9">
@@ -143,26 +144,26 @@
         </el-col>
         <el-col :span="9">
           <el-form-item label="获硕士学位方式">
-            <el-select v-model="editForm.masterWay"></el-select>
+            <el-select v-model="editForm.masterWay" style="width: 100%"></el-select>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
           <el-form-item label="最后学历" prop="groupName" >
-            <el-select v-model="editForm.lastExperience"></el-select>
+            <el-select v-model="editForm.lastExperience" style="width: 100%"></el-select>
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item label="最后学位">
-            <el-select v-model="editForm.lastDegree"></el-select>
+            <el-select v-model="editForm.lastDegree" style="width: 100%"></el-select>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
           <el-form-item label="报考专业" prop="groupName" >
-            <el-select v-model="editForm.applyMajor"></el-select>
+            <el-select v-model="editForm.applyMajor" style="width: 100%"></el-select>
           </el-form-item>
         </el-col>
         <el-col :span="9">
@@ -174,7 +175,7 @@
       <el-row>
         <el-col :span="9">
           <el-form-item label="报考博导" prop="groupName" >
-            <el-select v-model="editForm.applyMajorTutor"></el-select>
+            <el-select v-model="editForm.applyMajorTutor" style="width: 100%"></el-select>
           </el-form-item>
         </el-col>
       </el-row>
