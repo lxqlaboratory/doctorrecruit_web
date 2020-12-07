@@ -126,3 +126,24 @@ export function getGradSchool() {
     data: {}
   })
 }
+export function getApplyTutor(data) {
+  return request({
+    url: '/web/getApplyTutor',
+    method: 'POST',
+    data: data
+  })
+}
+export function getResearchDirection(data) {
+  return request({
+    url: '/web/getResearchDirection',
+    method: 'POST',
+    data: data
+  })
+}
+export function getCityByProvince(data) {
+  return request({
+    url: '/web/getCityByProvince',
+    method: 'POST',
+    data: data
+  })
+}
