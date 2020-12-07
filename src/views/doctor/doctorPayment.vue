@@ -7,7 +7,7 @@
 <script>
   import {physicalexaminationReportView } from '@/api/doctor'
   export default {
-    name: 'DoctorPayment.vue',
+    name: 'DoctorPayment',
     data() {
       return {
 
