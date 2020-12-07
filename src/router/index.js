@@ -55,7 +55,37 @@ export const constantRoutes = [
   },
   { path: '/', redirect: '/login', hidden: true },
   // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  { path: '*', redirect: '/404', hidden: true },
+  {
+    path: '/doctor',
+    component: Layout,
+    children: [{
+      path: 'ChangePassword',
+      name: 'ChangePassword',
+      component: () => import('@/views/doctor/changePassword'),
+      meta: { title: '修改密码', icon: 'example'}
+    }]
+  },
+  {
+    path: '/doctor',
+    component: Layout,
+    children: [{
+      path: 'PerfectInfo',
+      name: 'PerfectInfo',
+      component: () => import('@/views/doctor/perfectInfo'),
+      meta: { title: '完善信息', icon: 'example'}
+    }]
+  },
+  {
+    path: '/doctor',
+    component: Layout,
+    children: [{
+      path: 'DoctorPayment',
+      name: 'DoctorPayment',
+      component: () => import('@/views/doctor/doctorPayment'),
+      meta: { title: '临床博士网银缴费', icon: 'example'}
+    }]
+  },
 ]
 
 const createRouter = () => new Router({
