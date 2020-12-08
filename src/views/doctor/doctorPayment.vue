@@ -70,7 +70,7 @@
         <el-row>
           <el-col :span="10">
             <el-form-item align="center">
-              <el-button type="primary" @click="">提交</el-button>
+              <el-button type="primary" @click="$router.push({ path: 'RecruitFeeEbankPaymentRequest'} )">提交</el-button>
             </el-form-item>
           </el-col>
           <el-col :span="10">

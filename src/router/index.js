@@ -96,7 +96,15 @@ export const constantRoutes = [
       name: 'DoctorPayment',
       component: () => import('@/views/doctor/doctorPayment'),
       meta: { title: '临床博士网银缴费', icon: 'example'}
-    }],
+       },
+      {
+        path: 'RecruitFeeEbankPaymentRequest',
+        name: 'RecruitFeeEbankPaymentRequest',
+        component: () => import('@/views/doctor/recruitFeeEbankPaymentRequest'),
+        hidden:true
+      },
+    ],
+
     meta: { title: '临床博士网银缴费', icon: 'dashboard',roles: ['2850'] }
   },
   {
