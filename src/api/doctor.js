@@ -203,13 +203,6 @@ export function getExamRoomNumm() {
     data: {}
   })
 }
-export function isCheck() {
-  return request({
-    url: '/web/isCheck',
-    method: 'POST',
-    data: {}
-  })
-}
 export function getClassRoom() {
   return request({
     url: '/web/getClassRoom',
