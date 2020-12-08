@@ -23,3 +23,11 @@ export function registerNewDoctorInfo(data) {
     data
   })
 }
+
+export function retrievePassword(data) {
+  return request({
+    url: '/web/retrievePassword',
+    method: 'POST',
+    data
+  })
+}

@@ -304,6 +304,7 @@
               :rules=" [ { min: 0, max:2000, message: '长度小于2000字符', trigger: 'blur' }]"
               placeholder="限填写一篇"
               type="textarea"
+              :autosize="{ minRows: 8,maxRows: 12}"
             />
           </el-form-item>
         </el-col>

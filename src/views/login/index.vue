@@ -57,7 +57,7 @@
             <el-checkbox v-model="ydxy"><span
               style="font-size: 13px"
             >记住密码   </span>  </el-checkbox>
-            <div  style="font-size: 13px" > 忘记密码？</div>
+            <div  style="font-size: 13px" @click="forgetPass()" > 忘记密码？</div>
           </div>
 
         </div>
@@ -144,6 +144,9 @@ export default {
       this.$nextTick(() => {
         this.$refs.password.focus()
       })
+    },
+    forgetPass(){
+      this.$router.push({ path: '/forgetPassword' })
     },
     handleLogin() {
       if (this.code === '') {
