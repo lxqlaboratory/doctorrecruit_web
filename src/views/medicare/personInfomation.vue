@@ -55,7 +55,7 @@
               :value="item.value">
             </el-option>
           </el-select>
-        </td>dtdfd
+        </td>
       </tr>
 
       <tr>
