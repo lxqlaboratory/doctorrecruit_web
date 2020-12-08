@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <div align="center" style="font-size: 26px;font-weight: bold;color: #304156 ">成绩查询 </div><br/>
-    <div style="border: 1px solid #336699;margin-left: 20%;margin-right: 20%;">
+    <div style="border: 1px solid #336699;margin-left: 20%;margin-right: 10%;">
       <table cellspacing="10" width="80%" align="center" >
         <tr>
           <td width="20%" align="right"> 书面表达：</td>

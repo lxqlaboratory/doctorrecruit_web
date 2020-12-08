@@ -5,57 +5,57 @@
       <el-form ref="editForm" :model="editForm" :rules="editRules" label-position="left" label-width="100px" status-icon style="margin-top: 15px;">
         <br>
         <el-row align="middle">
-          <el-col :span="7">
+          <el-col :span="4">
             &nbsp;
           </el-col>
           <el-col :span="10">
             <el-form-item label="姓名">
-              <el-input v-model="editForm.perName" disabled />
+              <el-input style="width: 200px;" v-model="editForm.perName" disabled />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="7">
+          <el-col :span="4">
             &nbsp;
           </el-col>
           <el-col :span="10">
             <el-form-item label="编号">
-              <el-input v-model="editForm.applyNum" disabled />
+              <el-input style="width: 200px;" v-model="editForm.applyNum" disabled />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="7">
+          <el-col :span="4">
             &nbsp;
           </el-col>
           <el-col :span="10">
             <el-form-item label="订单号">
-              <el-input v-model="editForm.orderNum" disabled />
+              <el-input style="width: 200px;" v-model="editForm.orderNum" disabled />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="7">
+          <el-col :span="4">
             &nbsp;
           </el-col>
           <el-col :span="10">
             <el-form-item label="支付金额">
-              <el-input v-model="editForm.arrearNum" disabled />
+              <el-input style="width: 200px;" v-model="editForm.arrearNum" disabled />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="7">
+          <el-col :span="4">
             &nbsp;
           </el-col>
           <el-col :span="10">
             <el-form-item label="已缴金额">
-              <el-input v-model="editForm.paidFeeNum" disabled />
+              <el-input style="width: 200px;" v-model="editForm.paidFeeNum" disabled />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="7">
+          <el-col :span="4">
           &nbsp;
           </el-col>
           <el-col :span="10">

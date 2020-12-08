@@ -23,57 +23,57 @@
       <label>缴费状态:</label>
     </div>
     <div style="border: 1px solid #336699;margin-left: 10%;margin-right: 10%;"><br>
-      <el-form ref="form" :model="form" label-width="270px">
+      <el-form ref="form" :model="form" label-width="40%" >
         <el-row>
-          <el-col :span="10">
+          <el-col :span="11">
             <el-form-item label="姓名" prop="groupName">
-              <el-input v-model="form.perName" disabled />
+              <el-input style="width: 200px;" v-model="form.perName" disabled />
             </el-form-item>
           </el-col>
-          <el-col :span="10">
+          <el-col :span="11">
             <el-form-item label="编号" prop="groupName">
-              <el-input v-model="form.applyNum" disabled />
+              <el-input style="width: 200px;" v-model="form.applyNum" disabled />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="10">
+          <el-col :span="11">
             <el-form-item label="身份证号" prop="groupName">
-              <el-input v-model="form.perIdCard" disabled />
+              <el-input style="width: 200px;" v-model="form.perIdCard" disabled />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="10">
+          <el-col :span="11">
             <el-form-item label="应缴金额" prop="groupName">
-              <el-input v-model="form.feeNum" disabled />
+              <el-input style="width: 200px;" v-model="form.feeNum" disabled />
             </el-form-item>
           </el-col>
-          <el-col :span="10">
+          <el-col :span="11">
             <el-form-item label="已缴金额" prop="groupName">
-              <el-input v-model="form.paidFeeNum" disabled />
+              <el-input style="width: 200px;" v-model="form.paidFeeNum" disabled />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="10">
+          <el-col :span="11">
             <el-form-item label="本次缴费项目" prop="groupName">
-              <el-input v-model="form.payType" disabled />
+              <el-input style="width: 200px;" v-model="form.payType" disabled />
             </el-form-item>
           </el-col>
-          <el-col :span="10">
+          <el-col :span="11">
             <el-form-item label="本次支付金额" prop="groupName">
-              <el-input v-model="form.arrearNum" disabled />
+              <el-input style="width: 200px;" v-model="form.arrearNum" disabled />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="10">
+          <el-col :span="11">
             <el-form-item align="center">
               <el-button type="primary" @click="submit()">提交</el-button>
             </el-form-item>
           </el-col>
-          <el-col :span="10">
+          <el-col :span="11">
             <el-form-item align="center">
               <el-button @click="">重置</el-button>
             </el-form-item>

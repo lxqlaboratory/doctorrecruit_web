@@ -5,37 +5,37 @@
       <el-form ref="editForm" :model="editForm" :rules="editRules" label-position="left" label-width="100px" status-icon style="margin-top: 15px;">
         <br/>
         <el-row align="middle">
-          <el-col :span="7">
+          <el-col :span="4">
             &nbsp;
           </el-col>
           <el-col :span="10">
             <el-form-item label="原始密码" prop="oldPas">
-              <el-input v-model="oldPassword" :type="passw" style="width: 100%;background-color: #f4f4f5"/>
+              <el-input v-model="oldPassword" :type="passw" style="width: 200px;background-color: #f4f4f5"/>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="7">
+          <el-col :span="4">
             &nbsp;
           </el-col>
           <el-col :span="10">
             <el-form-item label="新的密码" prop="oldPas">
-              <el-input v-model="newPassword" :type="passw"  style="width: 100%;background-color: #f4f4f5"/>
+              <el-input v-model="newPassword" :type="passw"  style="width: 200px;background-color: #f4f4f5"/>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="7">
+          <el-col :span="4">
             &nbsp;
           </el-col>
           <el-col :span="10">
             <el-form-item label="确认密码" prop="oldPas">
-              <el-input v-model="newPassword1" :type="passw"  style="width: 100%;background-color: #f4f4f5"/>
+              <el-input v-model="newPassword1" :type="passw"  style="width: 200px;background-color: #f4f4f5"/>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row >
-          <el-col :span="7">
+          <el-col :span="4">
           &nbsp;
           </el-col>
           <el-col :span="10">
