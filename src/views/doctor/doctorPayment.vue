@@ -46,12 +46,12 @@
         <el-row>
           <el-col :span="10">
             <el-form-item label="应缴金额" prop="groupName">
-              <el-input v-model="form.paidFeeNum" disabled/>
+              <el-input v-model="form.feeNum" disabled/>
             </el-form-item>
           </el-col>
           <el-col :span="10">
             <el-form-item label="已缴金额" prop="groupName">
-              <el-input v-model="form.perName" disabled/>
+              <el-input v-model="form.paidFeeNum" disabled/>
             </el-form-item>
           </el-col>
         </el-row>
@@ -63,14 +63,14 @@
           </el-col>
           <el-col :span="10">
             <el-form-item label="本次支付金额" prop="groupName">
-              <el-input v-model="form.feeNum"  disabled/>
+              <el-input v-model="form.arrearNum"  disabled/>
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="10">
             <el-form-item align="center">
-              <el-button type="primary" @click="$router.push({ path: 'RecruitFeeEbankPaymentRequest'} )">提交</el-button>
+              <el-button type="primary" @click="$router.push({ path: 'RecruitFeeEbankPaymentRequest', query: { 'perIdCard': form.perIdCard ,'arrearNum': form.arrearNum}} )">提交</el-button>
             </el-form-item>
           </el-col>
           <el-col :span="10">

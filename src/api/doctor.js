@@ -14,6 +14,13 @@ export function initPay() {
     data: {}
   })
 }
+export function ebankPaymentRequest(data) {
+  return request({
+    url: '/pay/ebankPaymentRequest',
+    method: 'POST',
+    data: data
+  })
+}
 export function getSex() {
   return request({
     url: '/web/getSex',

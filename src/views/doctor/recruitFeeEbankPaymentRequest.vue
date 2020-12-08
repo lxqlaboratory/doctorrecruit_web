@@ -1,16 +1,16 @@
 <template>
   <div class="app-container">
-    <div align="center" style="font-size: 26px;font-weight: bold;color: #304156 ">支付检查 </div><br/>
+    <div align="center" style="font-size: 26px;font-weight: bold;color: #304156 ">支付检查 </div><br>
     <div style="border: 1px solid black;margin-left: 30%;margin-right: 30%;">
       <el-form ref="editForm" :model="editForm" :rules="editRules" label-position="left" label-width="100px" status-icon style="margin-top: 15px;">
-        <br/>
+        <br>
         <el-row align="middle">
           <el-col :span="7">
             &nbsp;
           </el-col>
           <el-col :span="10">
-            <el-form-item label="姓名" >
-              <el-input disabled v-model="perName" />
+            <el-form-item label="姓名">
+              <el-input v-model="editForm.perName" disabled />
             </el-form-item>
           </el-col>
         </el-row>
@@ -19,8 +19,8 @@
             &nbsp;
           </el-col>
           <el-col :span="10">
-            <el-form-item label="编号" >
-              <el-input v-model="applyNum"  disabled/>
+            <el-form-item label="编号">
+              <el-input v-model="editForm.applyNum" disabled />
             </el-form-item>
           </el-col>
         </el-row>
@@ -30,7 +30,7 @@
           </el-col>
           <el-col :span="10">
             <el-form-item label="订单号">
-              <el-input v-model="orderNum"  disabled/>
+              <el-input v-model="editForm.orderNum" disabled />
             </el-form-item>
           </el-col>
         </el-row>
@@ -40,7 +40,7 @@
           </el-col>
           <el-col :span="10">
             <el-form-item label="支付金额">
-              <el-input v-model="amountStr"  disabled/>
+              <el-input v-model="editForm.arrearNum" disabled />
             </el-form-item>
           </el-col>
         </el-row>
@@ -50,11 +50,11 @@
           </el-col>
           <el-col :span="10">
             <el-form-item label="已缴金额">
-              <el-input v-model="paidFeeNum"  disabled/>
+              <el-input v-model="editForm.paidFeeNum" disabled />
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row >
+        <el-row>
           <el-col :span="7">
           &nbsp;
           </el-col>
@@ -65,7 +65,6 @@
           </el-col>
         </el-row>
 
-
       </el-form>
     </div>
 
@@ -73,40 +72,36 @@
 </template>
 
 <script>
-import { changePassword } from '@/api/doctor'
+import { ebankPaymentRequest } from '@/api/doctor'
 export default {
   name: 'RecruitFeeEbankPaymentRequest',
   data() {
     return {
-      perName:'',
-      applyNum:'',
-      orderNum:'',
-      amountStr:'',
-      paidFeeNum:''
+      editForm: {
+        perName: '',
+        applyNum: '',
+        orderNum: '',
+        paidFeeNum: '',
+        arrearNum: '',
+        billInfo: '',
+        octopusViewId: '',
+        perIdCard: '',
+        sign: '',
+        subsysid: '',
+        sysid: ''
+      }
     }
   },
+  created() {
+    this.fetchData()
+  },
   methods: {
-    submit() {
-      if (this.newPassword !== this.newPassword1) {
-        this.$message({
-          type: 'error',
-          message: '两次密码输入不一致'
-        })
-      } else {
-        changePassword({ 'oldPassword': this.oldPassword, 'newPassword': this.newPassword }).then(response => {
-          if (response.re === 1) {
-            this.$message({
-              type: 'sucess',
-              message: '修改成功'
-            })
-          } else {
-            this.$message({
-              type: 'error',
-              message: response.data
-            })
-          }
-        })
-      }
+    fetchData() {
+      ebankPaymentRequest({ perIdCard: this.$route.query.perIdCard, arrearNum: this.$route.query.arrearNum + '' }).then(res => {
+        if (res.re === 1) {
+          this.editForm = res.data
+        }
+      })
     }
   }
 
