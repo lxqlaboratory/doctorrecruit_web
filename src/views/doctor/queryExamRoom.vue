@@ -6,7 +6,8 @@
       <el-row :gutter="20">
         <el-col :span="8">
           <label>缴费状态:</label>
-          <span>{{feeState}}</span>
+          <span v-if="this.feeState===1">未缴费</span>
+          <span v-else>已缴费</span>
         </el-col>
         <el-col :span="8">
           <label>缴费金额:</label>
@@ -47,7 +48,8 @@
         </el-col>
         <el-col :span="8">
           <label>是否现场确认:</label>
-          <span>{{checkState}}</span>
+          <span v-if="this.checkState===1">已现场确认</span>
+          <span v-else>未现场确认</span>
         </el-col>
       </el-row><br/>
     </div>
@@ -55,7 +57,7 @@
 </template>
 
 <script>
-  import {physicalexaminationReportView } from '@/api/doctor'
+  import {getFeeState,getFeeNum,getFeeTime,getExamNo,getExamSeatNum,getExamRoomNum,isCheck,getClassRoom } from '@/api/doctor'
   export default {
     name: 'QueryExamRoom',
     data() {
@@ -76,10 +78,37 @@
       }
     },
     created() {
-
+      this.fetchData()
     },
     methods: {
-
+        fetchData(){
+          getFeeState().then(res => {
+            this.feeState = res
+          }),
+            getFeeNum().then(res => {
+              this.feeNum = res
+            }),
+            getFeeTime().then(res => {
+              this.feeTime = res
+            }),
+            getExamNo().then(res => {
+              this.examNo = res
+            }),
+            getExamRoomNum().then(res => {
+            this.exameRoomNum = res
+            }),
+            getExamSeatNum().then(res => {
+              this.examSeatNum = res
+            }),
+            // getClassRoom().then(res => {
+            //   this.seatCount =res.seatCount
+            //   this.classroomName = res.classroomName
+            //   this.exameRoomNum = res.exameRoomNum
+            // }),
+            isCheck().then(res => {
+              this.checkState =res
+            })
+        }
       }
 
   }

@@ -196,9 +196,9 @@ export function getExamSeatNum() {
     data: {}
   })
 }
-export function getExamRoomNumm() {
+export function getExamRoomNum() {
   return request({
-    url: '/web/getExamRoomNumm',
+    url: '/web/getExamRoomNum',
     method: 'POST',
     data: {}
   })
