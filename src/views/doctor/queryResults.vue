@@ -1,43 +1,42 @@
 <template>
   <div class="app-container">
-    <div align="center" style="font-size: 26px;font-weight: bold;color: #304156 ">成绩查询 </div>
-    <table class="content" cellspacing="10" width="80%" align="center" >
-      <tr>
+    <div align="center" style="font-size: 26px;font-weight: bold;color: #304156 ">成绩查询 </div><br/>
+    <div style="border: 1px solid #336699;margin-left: 20%;margin-right: 20%;">
+      <table cellspacing="10" width="80%" align="center" >
+        <tr>
+          <td width="20%" align="right"> 书面表达：</td>
+          <td width="30%">{{totalScore}}</td>
+          <td width="20%" align="right">听力理解 ：</td>
+          <td width="30%">{{totalScore}}</td>
+        </tr>
+      </table>
+      <table cellspacing="10" width="80%" align="center" >
+        <tr>
 
-        <td width="10%" align="right"> 书面表达：</td>
-        <td width="30%">{{totalScore}}</td>
-        <td width="10%" align="right">听力理解 ：</td>
-        <td width="30%">{{totalScore}}</td>
-      </tr>
-    </table>
+          <td width="20%" align="right">词语用法：</td>
+          <td width="30%">{{totalScore}}</td>
+          <td width="20%" align="right">完形填空：</td>
+          <td width="30%">{{totalScore}}</td>
+        </tr>
+      </table>
+      <table cellspacing="10" width="80%" align="center" >
+        <tr>
 
-    <table class="content" cellspacing="10" width="80%" align="center" >
-      <tr>
-
-        <td width="10%" align="right">词语用法：</td>
-        <td width="30%">{{totalScore}}</td>
-        <td width="10%" align="right">完形填空：</td>
-        <td width="30%">{{totalScore}}</td>
-      </tr>
-    </table>
-
-    <table class="content" cellspacing="10" width="80%" align="center" >
-      <tr>
-
-        <td width="10%" align="right">阅读理解：</td>
-        <td width="30%">{{totalScore}}</td>
-        <td width="10%" align="right">总分：</td>
-        <td width="30%">{{totalScore}}</td>
-      </tr>
-    </table>
-    <table class="content" cellspacing="10" width="80%" align="center" >
-      <tr>
-        <td width="10%" align="right">总分标准分：</td>
-        <td width="30%">{{totalScore}}</td>
-        <td width="10%" align="right">合格证编号：</td>
-        <td width="30%">{{certificateNo}}</td>
-      </tr>
-    </table>
+          <td width="20%" align="right">阅读理解：</td>
+          <td width="30%">{{totalScore}}</td>
+          <td width="20%" align="right">总分：</td>
+          <td width="30%">{{totalScore}}</td>
+        </tr>
+      </table>
+      <table cellspacing="10" width="80%" align="center" >
+        <tr>
+          <td width="20%" align="right">总分标准分：</td>
+          <td width="30%">{{totalScore}}</td>
+          <td width="20%" align="right">合格证编号：</td>
+          <td width="30%">{{certificateNo}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </template>
 

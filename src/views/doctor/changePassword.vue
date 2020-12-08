@@ -1,22 +1,54 @@
 <template>
   <div class="app-container">
-    <div align="center" style="font-size: 26px;font-weight: bold;color: #304156 ">修改密码 </div>
+    <div align="center" style="font-size: 26px;font-weight: bold;color: #304156 ">修改密码 </div><br/>
+    <div style="border: 1px solid black;margin-left: 30%;margin-right: 30%;">
+      <el-form ref="editForm" :model="editForm" :rules="editRules" label-position="left" label-width="100px" status-icon style="margin-top: 15px;">
+        <br/>
+        <el-row align="middle">
+          <el-col :span="7">
+            &nbsp;
+          </el-col>
+          <el-col :span="10">
+            <el-form-item label="原始密码" prop="oldPas">
+              <el-input v-model="oldPassword" :type="passw" style="width: 100%;background-color: #f4f4f5"/>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="7">
+            &nbsp;
+          </el-col>
+          <el-col :span="10">
+            <el-form-item label="新的密码" prop="oldPas">
+              <el-input v-model="newPassword" :type="passw"  style="width: 100%;background-color: #f4f4f5"/>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="7">
+            &nbsp;
+          </el-col>
+          <el-col :span="10">
+            <el-form-item label="确认密码" prop="oldPas">
+              <el-input v-model="newPassword1" :type="passw"  style="width: 100%;background-color: #f4f4f5"/>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row >
+          <el-col :span="7">
+          &nbsp;
+          </el-col>
+          <el-col :span="10">
+            <el-form-item align="center">
+              <el-button type="primary" @click="submit">确定</el-button>
+            </el-form-item>
+          </el-col>
+        </el-row>
 
-    <el-form ref="editForm" :model="editForm" :rules="editRules" label-position="left" label-width="100px" status-icon style="margin-top: 15px;">
-      <el-form-item label="原始密码" prop="oldPas">
-        <el-input v-model="oldPassword" :type="passw" />
-      </el-form-item>
-      <el-form-item label="新密码" prop="oldPas">
-        <el-input v-model="newPassword" :type="passw" />
-      </el-form-item>
-      <el-form-item label="确认密码" prop="oldPas">
-        <el-input v-model="newPassword1" :type="passw" />
-      </el-form-item>
-      <el-form-item>
-        <el-button @click="submit">确定</el-button>
-      </el-form-item>
 
-    </el-form>
+      </el-form>
+    </div>
+
   </div>
 </template>
 
@@ -59,3 +91,15 @@ export default {
 
 }
 </script>
+<style scoped>
+  .g-title {
+    font-weight: bold;
+    font-size: 26px;
+    background-color: whitesmoke;
+    border-radius: 3px;
+    color: #333;
+    border-left: 7px solid #62bbc3;
+    margin: 10px 0 25px 0;
+    padding: 8px 15px;
+  }
+</style>
