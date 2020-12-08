@@ -428,124 +428,139 @@ export default {
   },
   methods: {
     submit() {
-      if (this.perName === '' || this.perName === null) {
+      if (this.editForm.perName === '' || this.editForm.perName === undefined) {
         this.$message({
           type: 'error',
           message: '姓名不能为空'
         })
-      } else if (this.sex === '' || this.sex === null) {
-        this.$message({
-          type: 'error',
-          message: '姓别不能为空'
-        })
-      } else if (this.birthday === '' || this.birthday === null) {
+      } else if (this.editForm.peopleCode === '' || this.editForm.peopleCode === undefined) {
         this.$message({
           type: 'error',
           message: '民族不能为空'
         })
-      } else if (this.politicalStatus === '' || this.politicalStatus === null) {
+      } else if (this.editForm.sex === '' || this.editForm.sex === undefined) {
         this.$message({
           type: 'error',
-          message: '政治面貌不能为空'
+          message: '姓别不能为空'
         })
-      } else if (this.hometown === '' || this.hometown === null) {
-        this.$message({
-          type: 'error',
-          message: '籍贯不能为空'
-        })
-      } else if (this.province === '' || this.province === null) {
-        this.$message({
-          type: 'error',
-          message: '工作单位所在地不能为空'
-        })
-      } else if (this.city === '' || this.city === null) {
-        this.$message({
-          type: 'error',
-          message: '工作单位所在地不能为空'
-        })
-      } else if (this.workplaceName === '' || this.workplaceName === null) {
-        this.$message({
-          type: 'error',
-          message: '工作单位名称不能为空'
-        })
-      } else if (this.address === '' || this.address === null) {
-        this.$message({
-          type: 'error',
-          message: '通讯地址不能为空'
-        })
-      } else if (this.mobilephone === '' || this.mobilephone === null) {
-        this.$message({
-          type: 'error',
-          message: '移动电话不能为空'
-        })
-      } else if (this.email === '' || this.email === null) {
-        this.$message({
-          type: 'error',
-          message: '电子邮箱不能为空'
-        })
-      } else if (this.profession === '' || this.profession === null) {
-        this.$message({
-          type: 'error',
-          message: '从事专业不能为空'
-        })
-      } else if (this.bachelorStudy === '' || this.bachelorStudy === null) {
-        this.$message({
-          type: 'error',
-          message: '本科学习形式不能为空'
-        })
-      } else if (this.bachelorMajor === '' || this.bachelorMajor === null) {
-        this.$message({
-          type: 'error',
-          message: '获得学士学位专业不能为空'
-        })
-      } else if (this.gradSchool === '' || this.gradSchool === null) {
-        this.$message({
-          type: 'error',
-          message: '硕士毕业学校不能为空'
-        })
-      } else if (this.gradDate === '' || this.gradDate === null) {
-        this.$message({
-          type: 'error',
-          message: '硕士毕业年月不能为空'
-        })
-      } else if (this.gradMajor === '' || this.gradMajor === null) {
-        this.$message({
-          type: 'error',
-          message: '硕士毕业专业不能为空'
-        })
-      } else if (this.masterWay === '' || this.masterWay === null) {
-        this.$message({
-          type: 'error',
-          message: '获硕士学位方式不能为空'
-        })
-      } else if (this.lastExperience === '' || this.lastExperience === null) {
-        this.$message({
-          type: 'error',
-          message: '最后学历不能为空'
-        })
-      } else if (this.lastDegree === '' || this.lastDegree === null) {
-        this.$message({
-          type: 'error',
-          message: '最后学位不能为空'
-        })
-      } else if (this.birthday === '' || this.birthday === null) {
+      } else if (this.editForm.birthday === '' || this.editForm.birthday === undefined) {
         this.$message({
           type: 'error',
           message: '出生日期不能为空'
         })
-      } else if (this.applyMajor === '' || this.applyMajor === null) {
+      } else if (this.editForm.politicalStatus === '' || this.editForm.politicalStatus === undefined) {
+        this.$message({
+          type: 'error',
+          message: '政治面貌不能为空'
+        })
+      } else if (this.editForm.hometown === '' || this.editForm.hometown === undefined) {
+        this.$message({
+          type: 'error',
+          message: '籍贯不能为空'
+        })
+      } else if (this.editForm.province === '' || this.editForm.province === undefined) {
+        this.$message({
+          type: 'error',
+          message: '工作单位所在地不能为空'
+        })
+      } else if (this.editForm.city === '' || this.editForm.city === undefined) {
+        this.$message({
+          type: 'error',
+          message: '工作单位所在地不能为空'
+        })
+      } else if (this.editForm.workplaceName === '' || this.editForm.workplaceName === undefined) {
+        this.$message({
+          type: 'error',
+          message: '工作单位名称不能为空'
+        })
+      } else if (this.editForm.address === '' || this.editForm.address === undefined) {
+        this.$message({
+          type: 'error',
+          message: '通讯地址不能为空'
+        })
+      } else if (this.editForm.mobilephone === '' || this.editForm.mobilephone === undefined) {
+        this.$message({
+          type: 'error',
+          message: '移动电话不能为空'
+        })
+      } else if (this.editForm.email === '' || this.editForm.email === undefined) {
+        this.$message({
+          type: 'error',
+          message: '电子邮箱不能为空'
+        })
+      } else if (this.editForm.profession === '' || this.editForm.profession === undefined) {
+        this.$message({
+          type: 'error',
+          message: '从事专业不能为空'
+        })
+      } else if (this.editForm.bachelorStudy === '' || this.editForm.bachelorStudy === undefined) {
+        this.$message({
+          type: 'error',
+          message: '本科学习形式不能为空'
+        })
+      } else if (this.editForm.bachelorMajor === '' || this.editForm.bachelorMajor === undefined) {
+        this.$message({
+          type: 'error',
+          message: '获得学士学位专业不能为空'
+        })
+      } else if (this.editForm.gradSchool === '' || this.editForm.gradSchool === undefined) {
+        this.$message({
+          type: 'error',
+          message: '硕士毕业学校不能为空'
+        })
+      } else if (this.editForm.gradDate === '' || this.editForm.gradDate === undefined) {
+        this.$message({
+          type: 'error',
+          message: '硕士毕业年月不能为空'
+        })
+      } else if (this.editForm.gradMajor === '' || this.editForm.gradMajor === undefined) {
+        this.$message({
+          type: 'error',
+          message: '硕士毕业专业不能为空'
+        })
+      } else if (this.editForm.masterWay === '' || this.editForm.masterWay === undefined) {
+        this.$message({
+          type: 'error',
+          message: '获硕士学位方式不能为空'
+        })
+      } else if (this.editForm.lastExperience === '' || this.editForm.lastExperience === undefined) {
+        this.$message({
+          type: 'error',
+          message: '最后学历不能为空'
+        })
+      } else if (this.editForm.lastDegree === '' || this.editForm.lastDegree === undefined) {
+        this.$message({
+          type: 'error',
+          message: '最后学位不能为空'
+        })
+      } else if (this.editForm.birthday === '' || this.editForm.birthday === undefined) {
+        this.$message({
+          type: 'error',
+          message: '出生日期不能为空'
+        })
+      } else if (this.editForm.applyMajor === '' || this.editForm.applyMajor === undefined) {
         this.$message({
           type: 'error',
           message: '报考专业不能为空'
         })
-      } else if (this.applyMajorTutor === '' || this.applyMajorTutor === null) {
+      } else if (this.editForm.applyMajorTutor === '' || this.editForm.applyMajorTutor === undefined) {
         this.$message({
           type: 'error',
           message: '报考博导不能为空'
         })
       } else {
         doctorRecruitSubmit({ perName: this.editForm.perName, sex: this.editForm.sex, birthday: this.editForm.birthday, peopleCode: this.editForm.peopleCode, politicalStatus: this.editForm.politicalStatus, hometown: this.editForm.hometown, province: this.editForm.province, city: this.editForm.city, workplaceName: this.editForm.workplaceName, grade: this.editForm.grade, postalcode: this.editForm.postalcode, telephone: this.editForm.telephone, mobilephone: this.editForm.mobilephone, email: this.editForm.email, profession: this.editForm.profession, address: this.editForm.address, bachelorStudy: this.editForm.bachelorStudy, bachelorMajor: this.editForm.bachelorMajor, gradSchool: this.editForm.gradSchool, gradMajor: this.editForm.gradMajor, gradDate: this.editForm.gradDate, masterWay: this.editForm.masterWay, lastExperience: this.editForm.lastExperience, lastDegree: this.editForm.lastDegree, applyMajor: this.editForm.applyMajor, applyMajorTutor: this.editForm.applyMajorTutor, direction: this.editForm.direction, articles: this.editForm.articles, majorNote: this.editForm.majorNote, resume: this.editForm.resume }).then(res => {
-
+          if (res.re === 1) {
+            this.$message({
+              type: 'sucess',
+              message: '提交成功'
+            })
+          } else {
+            this.$message({
+              type: 'error',
+              message: '提交失败'
+            })
+          }
         })
       }
     },
@@ -575,15 +590,18 @@ export default {
       getInitInfo().then(res => {
         this.editForm.perName = res.infoPersonInfoDoctorRecruit.infoPersonInfo.perName
         this.editForm.email = res.infoPersonInfoDoctorRecruit.infoPersonInfo.email
-        this.editForm.sex = res.infoPersonInfoDoctorRecruit.infoPersonInfo.genderCode
+        if (res.infoPersonInfoDoctorRecruit.infoPersonInfo.genderCode !== '0') {
+          this.editForm.sex = res.infoPersonInfoDoctorRecruit.infoPersonInfo.genderCode
+        }
         this.editForm.mobilephone = res.infoPersonInfoDoctorRecruit.infoPersonInfo.mobilePhone
         this.editForm.address = res.infoPersonInfoDoctorRecruit.infoPersonInfo.perAddress
-        this.editForm.birthday = res.infoPersonInfoDoctorRecruit.infoPersonInfo.perBirthday
+        this.editForm.birthday = new Date(res.infoPersonInfoDoctorRecruit.infoPersonInfo.perBirthday)
         this.editForm.perIdCard = res.infoPersonInfoDoctorRecruit.infoPersonInfo.perIdCard
-        // this.editForm.perNum = res.infoPersonInfoDoctorRecruit.infoPersonInfo.perNum
+        this.editForm.gradDate = new Date(res.masterDate)
         this.editForm.postalcode = res.infoPersonInfoDoctorRecruit.infoPersonInfo.perPostalCode
-        this.editForm.peopleCode = res.infoPersonInfoDoctorRecruit.peopleId + ''
-        // this.editForm.personId = res.infoPersonInfoDoctorRecruit.infoPersonInfo.personId
+        if (res.infoPersonInfoDoctorRecruit.peopleId !== 0) {
+          this.editForm.peopleCode = res.infoPersonInfoDoctorRecruit.peopleId + ''
+        }
         this.editForm.collegeId = res.infoPersonInfoDoctorRecruit.collegeId
         this.editForm.lastDegree = res.infoPersonInfoDoctorRecruit.lastDegree
         this.editForm.lastExperience = res.infoPersonInfoDoctorRecruit.lastStudyLevel
@@ -591,27 +609,40 @@ export default {
         this.editForm.telephone = res.infoPersonInfoDoctorRecruit.perTelephone
         this.editForm.politicalStatus = res.infoPersonInfoDoctorRecruit.politicsCode
         this.editForm.grade = res.infoPersonInfoDoctorRecruit.proTechPositionCode
-        this.editForm.bachelorMajor = res.bachelorMajorId + ''
+        if (res.bachelorMajorId !== undefined) {
+          this.editForm.bachelorMajor = res.bachelorMajorId + ''
+        }
         this.editForm.profession = res.devoteMajor
         this.editForm.province = res.workProvince
         this.editForm.city = res.workCity
         this.editForm.bachelorStudy = res.studyForm
         this.editForm.majorNote = res.majorNote
         this.editForm.workplaceName = res.workUnit
-        this.editForm.gradMajor = res.masterMajorId + ''
+        if (res.masterMajorId !== undefined) {
+          this.editForm.gradMajor = res.masterMajorId + ''
+        }
         this.editForm.masterWay = res.masterDegreeForm
         this.editForm.direction = res.researchDirect
-        this.editForm.applyMajor = res.majorId + ''
-        getApplyTutor({ majorId: this.editForm.applyMajor }).then(res => {
-          if (res.re === 1) {
-            this.applyMajorTutorList = res.data
-          } else {
-            console.log(res)
-          }
-        })
-        this.editForm.applyMajorTutor = res.tutorId + ''
-        this.editForm.articles = res.articles + ''
-        this.editForm.gradSchool = res.masterCultivateUnitId + ''
+        if (res.applyMajor !== undefined) {
+          this.editForm.applyMajor = res.majorId + ''
+          getApplyTutor({ majorId: this.editForm.applyMajor }).then(res => {
+            if (res.re === 1) {
+              this.applyMajorTutorList = res.data
+            } else {
+              console.log(res)
+            }
+          })
+        }
+        if (res.tutorId !== undefined) {
+          this.editForm.applyMajorTutor = res.tutorId + ''
+        }
+        if (res.articles !== undefined) {
+          this.editForm.articles = res.articles + ''
+        }
+        if (res.masterCultivateUnitId !== undefined) {
+          this.editForm.gradSchool = res.masterCultivateUnitId + ''
+        }
+
         getInitResume().then(res => {
           this.editForm.resume = res.data
         })
