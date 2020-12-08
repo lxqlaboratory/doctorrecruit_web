@@ -154,3 +154,10 @@ export function doctorRecruitSubmit(data) {
     data: data
   })
 }
+export function getScores() {
+  return request({
+    url: '/web/getScores',
+    method: 'POST',
+    data: {}
+  })
+}
