@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <div class="g-title">完善信息</div>
-    <el-form :model="editForm" label-width="220px" style="width: 100%;align-content: center;">
+    <el-form :model="editForm" label-width="40%" style="width: 100%;align-content: center;">
       <el-row>
         <el-col :span="9">
           <el-form-item label="姓名" prop="groupName">
@@ -290,14 +290,14 @@
         </el-col>
       </el-row>
       <el-row>
-        <el-col :span="18">
+        <el-col :span="9">
           <el-form-item label="研究方向" prop="groupName">
             <el-input style="width: 200px" v-model="editForm.direction" disabled />
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
-        <el-col :span="18">
+        <el-col :span="9">
           <el-form-item label="发表文章情况">
             <el-input
               style="width: 600px"
