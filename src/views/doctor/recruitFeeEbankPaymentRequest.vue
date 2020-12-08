@@ -60,7 +60,7 @@
           </el-col>
           <el-col :span="10">
             <el-form-item align="center">
-              <el-button type="primary" @click="$router.push({ path: ''} )">确认支付</el-button>
+              <el-button type="primary" @click="checkSubmit()">确认支付</el-button>
             </el-form-item>
           </el-col>
         </el-row>
@@ -102,6 +102,17 @@ export default {
           this.editForm = res.data
         }
       })
+    },
+    checkSubmit() {
+      const dwSafari = window.open()
+      dwSafari.document.open()
+      dwSafari.document.write("<form action='http://pay.sdu.edu.cn/payment/pay/payment_appPay.action' method='post'  name='form1' style='display:none'>")
+      dwSafari.document.write("<input type='hidden' name='sign' value='" + this.editForm.sign + "'>")
+      dwSafari.document.write("<input type='hidden' name='sysid' value='" + this.editForm.sysid + "'>")
+      dwSafari.document.write("<input type='hidden' name='data' value='" + this.editForm.billInfo + "'>")
+      dwSafari.document.write("<input type='hidden' name='subsysid' value='" + this.editForm.subsysid + "'>")
+      dwSafari.document.form1.submit()
+      dwSafari.document.close()
     }
   }
 
