@@ -27,31 +27,31 @@
         <el-row>
           <el-col :span="10">
             <el-form-item label="姓名" prop="groupName">
-              <el-input v-model="form.perName" disabled/>
+              <el-input v-model="form.perName" disabled />
             </el-form-item>
           </el-col>
           <el-col :span="10">
             <el-form-item label="编号" prop="groupName">
-              <el-input v-model="form.applyNum" disabled/>
+              <el-input v-model="form.applyNum" disabled />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="10">
             <el-form-item label="身份证号" prop="groupName">
-              <el-input v-model="form.perIdCard" disabled/>
+              <el-input v-model="form.perIdCard" disabled />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="10">
             <el-form-item label="应缴金额" prop="groupName">
-              <el-input v-model="form.feeNum" disabled/>
+              <el-input v-model="form.feeNum" disabled />
             </el-form-item>
           </el-col>
           <el-col :span="10">
             <el-form-item label="已缴金额" prop="groupName">
-              <el-input v-model="form.paidFeeNum" disabled/>
+              <el-input v-model="form.paidFeeNum" disabled />
             </el-form-item>
           </el-col>
         </el-row>
@@ -63,14 +63,14 @@
           </el-col>
           <el-col :span="10">
             <el-form-item label="本次支付金额" prop="groupName">
-              <el-input v-model="form.arrearNum"  disabled/>
+              <el-input v-model="form.arrearNum" disabled />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="10">
             <el-form-item align="center">
-              <el-button type="primary" @click="$router.push({ path: 'RecruitFeeEbankPaymentRequest', query: { 'perIdCard': form.perIdCard ,'arrearNum': form.arrearNum}} )">提交</el-button>
+              <el-button type="primary" @click="submit()">提交</el-button>
             </el-form-item>
           </el-col>
           <el-col :span="10">
@@ -108,6 +108,21 @@ export default {
     this.fetchData()
   },
   methods: {
+    submit() {
+      if (!this.form.systemState) {
+        this.$message({
+          type: 'error',
+          message: '每天的缴款时间为1:00至21:00，请不要在其他时段登录银行页面付费'
+        })
+      } else if (this.form.perName === undefined) {
+        this.$message({
+          type: 'error',
+          message: '请先于【完善信息】处完善个人信息再进行缴费操作！'
+        })
+      } else {
+        this.$router.push({ path: 'RecruitFeeEbankPaymentRequest', query: { 'perIdCard': this.form.perIdCard, 'arrearNum': this.form.arrearNum }})
+      }
+    },
     fetchData() {
       initPay().then(res => {
         if (res.re === 1) {
