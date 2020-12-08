@@ -91,6 +91,35 @@ export const constantRoutes = [
       meta: { title: '临床博士网银缴费', icon: 'example'}
     }]
   },
+  {
+    path: '/doctor',
+    component: Layout,
+    children: [{
+      path: 'downloadQualificationChecklist',
+      name: 'downloadQualificationChecklist',
+      component: () => import('@/views/doctor/downloadQualificationChecklist'),
+      meta: { title: '下载资格审查表', icon: 'example'}
+    }]
+  },{
+    path: '/doctor',
+    component: Layout,
+    children: [{
+      path: 'QueryExamRoom',
+      name: 'QueryExamRoom',
+      component: () => import('@/views/doctor/queryExamRoom'),
+      meta: { title: '考场信息查询', icon: 'example'}
+    }]
+  },
+  {
+    path: '/doctor',
+    component: Layout,
+    children: [{
+      path: 'QueryResults',
+      name: 'QueryResults',
+      component: () => import('@/views/doctor/queryResults'),
+      meta: { title: '成绩查询', icon: 'example'}
+    }]
+  },
 ]
 
 const createRouter = () => new Router({
