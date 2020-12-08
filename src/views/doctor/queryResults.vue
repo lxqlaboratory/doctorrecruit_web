@@ -5,35 +5,35 @@
       <table cellspacing="10" width="80%" align="center" >
         <tr>
           <td width="20%" align="right"> 书面表达：</td>
-          <td width="30%">{{totalScore}}</td>
+          <td width="30%">{{form.score545}}</td>
           <td width="20%" align="right">听力理解 ：</td>
-          <td width="30%">{{totalScore}}</td>
+          <td width="30%">{{form.score546}}</td>
         </tr>
       </table>
       <table cellspacing="10" width="80%" align="center" >
         <tr>
 
           <td width="20%" align="right">词语用法：</td>
-          <td width="30%">{{totalScore}}</td>
+          <td width="30%">{{form.score548}}</td>
           <td width="20%" align="right">完形填空：</td>
-          <td width="30%">{{totalScore}}</td>
+          <td width="30%">{{form.score549}}</td>
         </tr>
       </table>
       <table cellspacing="10" width="80%" align="center" >
         <tr>
 
           <td width="20%" align="right">阅读理解：</td>
-          <td width="30%">{{totalScore}}</td>
+          <td width="30%">{{form.score550}}</td>
           <td width="20%" align="right">总分：</td>
-          <td width="30%">{{totalScore}}</td>
+          <td width="30%">{{form.score459}}</td>
         </tr>
       </table>
       <table cellspacing="10" width="80%" align="center" >
         <tr>
           <td width="20%" align="right">总分标准分：</td>
-          <td width="30%">{{totalScore}}</td>
+          <td width="30%">{{form.totalScore}}</td>
           <td width="20%" align="right">合格证编号：</td>
-          <td width="30%">{{certificateNo}}</td>
+          <td width="30%">{{form.certificateNo}}</td>
         </tr>
       </table>
     </div>
@@ -49,7 +49,15 @@
         totalScore:'111',
         certificateNo:'',
         form:{
-
+          applyId:'',
+          score545:'',
+          score546:'',
+          score548:'',
+          score549:'',
+          score550:'',
+          score459:'',
+          totalScore:'',
+          certificateNo:''
         }
 
       }
@@ -59,8 +67,8 @@
     },
     methods: {
         fetchData(){
-          getScores().then(res=>{
-            this.form = res.data
+          getScores().then(res => {
+              this.form = res
           })
         }
       }

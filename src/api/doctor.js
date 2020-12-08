@@ -161,3 +161,59 @@ export function getScores() {
     data: {}
   })
 }
+export function getFeeState() {
+  return request({
+    url: '/web/getFeeState',
+    method: 'POST',
+    data: {}
+  })
+}
+export function getFeeNum() {
+  return request({
+    url: '/web/getFeeNum',
+    method: 'POST',
+    data: {}
+  })
+}
+export function getFeeTime() {
+  return request({
+    url: '/web/getFeeTime',
+    method: 'POST',
+    data: {}
+  })
+}
+export function getExamNo() {
+  return request({
+    url: '/web/getExamNo',
+    method: 'POST',
+    data: {}
+  })
+}
+export function getExamSeatNum() {
+  return request({
+    url: '/web/getExamSeatNum',
+    method: 'POST',
+    data: {}
+  })
+}
+export function getExamRoomNumm() {
+  return request({
+    url: '/web/getExamRoomNumm',
+    method: 'POST',
+    data: {}
+  })
+}
+export function isCheck() {
+  return request({
+    url: '/web/isCheck',
+    method: 'POST',
+    data: {}
+  })
+}
+export function getClassRoom() {
+  return request({
+    url: '/web/getClassRoom',
+    method: 'POST',
+    data: {}
+  })
+}

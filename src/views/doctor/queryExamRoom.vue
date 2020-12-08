@@ -2,8 +2,8 @@
   <div class="app-container">
     <div align="center" style="font-size: 26px;font-weight: bold;color: #304156 ">考场信息查询 </div>
     <div class="g-title">缴费信息</div>
-      <div style="border: 1px solid #336699;margin-left: 20%;margin-right: 20%;"><br/>
-      <el-row :gutter="20" style="margin-left: 20px">
+    <div style="padding-left:35px;width: 70%;min-height: 10vh;">
+      <el-row :gutter="20">
         <el-col :span="8">
           <label>缴费状态:</label>
           <span>{{feeState}}</span>
@@ -16,12 +16,12 @@
           <label>缴费日期:</label>
           <span>{{feeTime}}</span>
         </el-col>
-      </el-row><br/>
+      </el-row>
     </div>
 
     <div class="g-title">考试信息</div>
-    <div style="border: 1px solid #336699;margin-left: 20%;margin-right: 20%;"><br/>
-      <el-row :gutter="20" style="margin-left: 20px">
+    <div style="padding-left:35px;width: 70%;min-height: 10vh;">
+      <el-row :gutter="20">
         <el-col :span="8">
           <label>准考证号:</label>
           <span>{{examNo}}</span>
