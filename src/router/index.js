@@ -85,8 +85,7 @@ export const constantRoutes = [
       name: 'PerfectInfo',
       component: () => import('@/views/doctor/perfectInfo'),
       meta: { title: '完善信息', icon: 'example'}
-    }]
-    ,
+    }],
     meta: { title: '完善信息', icon: 'dashboard',roles: ['2847'] }
   },
   {
@@ -97,15 +96,15 @@ export const constantRoutes = [
       name: 'DoctorPayment',
       component: () => import('@/views/doctor/doctorPayment'),
       meta: { title: '临床博士网银缴费', icon: 'example'}
-    },
+       },
       {
         path: 'RecruitFeeEbankPaymentRequest',
         name: 'RecruitFeeEbankPaymentRequest',
         component: () => import('@/views/doctor/recruitFeeEbankPaymentRequest'),
         hidden:true
       },
-    ]
-    ,
+    ],
+
     meta: { title: '临床博士网银缴费', icon: 'dashboard',roles: ['2850'] }
   },
   {
@@ -116,8 +115,7 @@ export const constantRoutes = [
       name: 'downloadQualificationChecklist',
       component: () => import('@/views/doctor/downloadQualificationChecklist'),
       meta: { title: '下载资格审查表', icon: 'example'}
-    }]
-    ,
+    }],
     meta: { title: '下载资格审查表', icon: 'dashboard',roles: ['2851'] }
   },{
     path: '/doctor',
@@ -127,8 +125,7 @@ export const constantRoutes = [
       name: 'QueryExamRoom',
       component: () => import('@/views/doctor/queryExamRoom'),
       meta: { title: '考场信息查询', icon: 'example'}
-    }]
-    ,
+    }],
     meta: { title: '考场信息查询', icon: 'dashboard',roles: ['2851'] }
   },
   {
@@ -139,8 +136,7 @@ export const constantRoutes = [
       name: 'QueryResults',
       component: () => import('@/views/doctor/queryResults'),
       meta: { title: '成绩查询', icon: 'example'}
-    }]
-    ,
+    }],
     meta: { title: '成绩查询', icon: 'dashboard',roles: ['2924'] }
   },
 ]
