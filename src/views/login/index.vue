@@ -216,6 +216,9 @@ export default {
     randomNum(min, max) {
       return Math.floor(Math.random() * (max - min) + min)
     },
+    reDirect(){
+      this.$router.push({path: '/register'})
+    },
     refreshCode() {
       this.identifyCode = ''
       this.makeCode(this.identifyCodes, 4)

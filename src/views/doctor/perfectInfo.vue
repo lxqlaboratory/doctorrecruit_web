@@ -4,25 +4,26 @@
     <el-form :model="editForm" label-width="220px" style="width: 80%;align-content: center;">
       <el-row>
         <el-col :span="9">
-          <el-form-item label="姓名" prop="groupName" >
-            <el-input v-model="editForm.perName"></el-input>
+          <el-form-item label="姓名" prop="groupName">
+            <el-input v-model="editForm.perName" />
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item label="性别">
             <el-select v-model="editForm.sex" style="width: 100%" placeholder="请选择">
-              <el-option  v-for="item in sexList"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-              </el-option>
+              <el-option
+                v-for="item in sexList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
-          <el-form-item label="出生日期" prop="groupName" >
+          <el-form-item label="出生日期" prop="groupName">
             <el-date-picker
               v-model="editForm.birthday"
               type="date"
@@ -34,170 +35,179 @@
         </el-col>
         <el-col :span="9">
           <el-form-item label="证件号码">
-            <el-input v-model="editForm.perIdCard"></el-input>
+            <el-input v-model="editForm.perIdCard" disabled />
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
-          <el-form-item label="民族" prop="groupName" >
+          <el-form-item label="民族" prop="groupName">
             <el-select v-model="editForm.peopleCode" style="width: 100%" placeholder="请选择">
-              <el-option  v-for="item in peopleCodeList"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-              </el-option>
+              <el-option
+                v-for="item in peopleCodeList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item label="政治面貌">
             <el-select v-model="editForm.politicalStatus" style="width: 100%" placeholder="请选择">
-              <el-option  v-for="item in politicalStatusList"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-              </el-option>
+              <el-option
+                v-for="item in politicalStatusList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
-          <el-form-item label="籍贯" prop="groupName" >
-            <el-input v-model="editForm.hometown"></el-input>
+          <el-form-item label="籍贯" prop="groupName">
+            <el-input v-model="editForm.hometown" />
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item label="工作单位所在地">
-            <el-select style="width: 50%" v-model="editForm.province" placeholder="请选择" @change="getCity">
-              <el-option  v-for="item in provinceList"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-              </el-option>
-            </el-select><el-select style="width: 50%" v-model="editForm.city" placeholder="请选择">
-              <el-option  v-for="item in cityList"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-              </el-option>
+            <el-select v-model="editForm.province" style="width: 50%" placeholder="请选择" @change="getCity">
+              <el-option
+                v-for="item in provinceList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select><el-select v-model="editForm.city" style="width: 50%" placeholder="请选择">
+              <el-option
+                v-for="item in cityList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
-          <el-form-item label="工作单位名称" prop="groupName" >
-            <el-input v-model="editForm.workplaceName"></el-input>
+          <el-form-item label="工作单位名称" prop="groupName">
+            <el-input v-model="editForm.workplaceName" />
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item label="职称">
             <el-select v-model="editForm.grade" style="width: 100%" placeholder="请选择">
-              <el-option  v-for="item in gradeList"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-              </el-option>
+              <el-option
+                v-for="item in gradeList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
-          <el-form-item label="通讯地址" prop="groupName" >
-            <el-input v-model="editForm.address"></el-input>
+          <el-form-item label="通讯地址" prop="groupName">
+            <el-input v-model="editForm.address" />
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item label="邮政编码">
-            <el-input v-model="editForm.postalcode"></el-input>
+            <el-input v-model="editForm.postalcode" />
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
-          <el-form-item label="固定电话" prop="groupName" >
-            <el-input v-model="editForm.telephone"></el-input>
+          <el-form-item label="固定电话" prop="groupName">
+            <el-input v-model="editForm.telephone" />
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item label="移动电话">
-            <el-input v-model="editForm.mobilephone"></el-input>
+            <el-input v-model="editForm.mobilephone" />
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
-          <el-form-item label="电子邮箱" prop="groupName" >
-            <el-input v-model="editForm.email"></el-input>
+          <el-form-item label="电子邮箱" prop="groupName">
+            <el-input v-model="editForm.email" />
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item label="从事专业">
-            <el-input v-model="editForm.profession"></el-input>
+            <el-input v-model="editForm.profession" />
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
-          <el-form-item label="本科学习形式" prop="groupName" >
+          <el-form-item label="本科学习形式" prop="groupName">
             <el-select v-model="editForm.bachelorStudy" style="width: 100%" placeholder="请选择">
-              <el-option  v-for="item in bachelorStudyList"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-              </el-option>
+              <el-option
+                v-for="item in bachelorStudyList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item label="获学士学位专业">
             <el-select v-model="editForm.bachelorMajor" style="width: 100%" placeholder="请选择">
-              <el-option  v-for="item in bachelorMajorList"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-              </el-option>
+              <el-option
+                v-for="item in bachelorMajorList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
-          <el-form-item label="硕士毕业学校" prop="groupName" >
+          <el-form-item label="硕士毕业学校" prop="groupName">
             <el-select v-model="editForm.gradSchool" style="width: 100%" placeholder="请选择">
-              <el-option  v-for="item in gradSchoolList"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-              </el-option>
+              <el-option
+                v-for="item in gradSchoolList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
-          <el-form-item label="硕士毕业专业" prop="groupName" >
+          <el-form-item label="硕士毕业专业" prop="groupName">
             <el-select v-model="editForm.gradMajor" style="width: 100%" placeholder="请选择">
-              <el-option  v-for="item in gradMajorList"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-              </el-option>
+              <el-option
+                v-for="item in gradMajorList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item label="毕业专业备注">
-            <el-input v-model="editForm.majorNote"></el-input>
+            <el-input v-model="editForm.majorNote" />
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
-          <el-form-item label="硕士毕业年月" prop="groupName" >
+          <el-form-item label="硕士毕业年月" prop="groupName">
             <el-date-picker
               v-model="editForm.gradDate"
               type="date"
@@ -210,318 +220,497 @@
         <el-col :span="9">
           <el-form-item label="获硕士学位方式">
             <el-select v-model="editForm.masterWay" style="width: 100%" placeholder="请选择">
-              <el-option  v-for="item in masterWayList"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-              </el-option>
+              <el-option
+                v-for="item in masterWayList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
-          <el-form-item label="最后学历" prop="groupName" >
+          <el-form-item label="最后学历" prop="groupName">
             <el-select v-model="editForm.lastExperience" style="width: 100%" placeholder="请选择">
-              <el-option  v-for="item in lastExperienceList"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-              </el-option>
+              <el-option
+                v-for="item in lastExperienceList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item label="最后学位">
             <el-select v-model="editForm.lastDegree" style="width: 100%" placeholder="请选择">
-              <el-option  v-for="item in lastDegreeList"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-              </el-option>
+              <el-option
+                v-for="item in lastDegreeList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
-          <el-form-item label="报考专业" prop="groupName" >
-            <el-select v-model="editForm.applyMajor" style="width: 100%" @change="getTutor" placeholder="请选择">
-              <el-option  v-for="item in applyMajorList"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-              </el-option>
+          <el-form-item label="报考专业" prop="groupName">
+            <el-select v-model="editForm.applyMajor" style="width: 100%" placeholder="请选择" @change="getTutor">
+              <el-option
+                v-for="item in applyMajorList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item label="报考语言">
-            <el-input v-model="editForm.applyLanguage"></el-input>
+            <el-input value="英语" disabled />
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
-          <el-form-item label="报考博导" prop="groupName" >
+          <el-form-item label="报考博导" prop="groupName">
             <el-select v-model="editForm.applyMajorTutor" style="width: 100%" @change="getDirection">
-              <el-option  v-for="item in applyMajorTutorList"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value">
-              </el-option>
+              <el-option
+                v-for="item in applyMajorTutorList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
             </el-select>
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="18">
-          <el-form-item label="研究方向" prop="groupName" >
-            <el-input disabled v-model="editForm.direction"></el-input>
+          <el-form-item label="研究方向" prop="groupName">
+            <el-input v-model="editForm.direction" disabled />
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="18">
           <el-form-item label="发表文章情况">
-            <el-input :rules=" [ { min: 0, max:2000, message: '长度小于2000字符', trigger: 'blur' }]" placeholder="限填写一篇"
-                      type="textarea"
-                      v-model="editForm.articles"></el-input>
+            <el-input
+              v-model="editForm.articles"
+              :rules=" [ { min: 0, max:2000, message: '长度小于2000字符', trigger: 'blur' }]"
+              placeholder="限填写一篇"
+              type="textarea"
+            />
           </el-form-item>
         </el-col>
       </el-row>
     </el-form>
-    <div class="g-title">个人简历</div>
-       <div style="width:100%;display: flex;align-items: center;justify-content: space-between;margin-bottom: 10px;" v-for="(item,index) in editForm.resume">
+    <div class="g-title">个人简历
+      <el-button
+        icon="el-icon-circle-plus-outline"
+        type="primary"
+        @click="editForm.resume.push({
+          startEndMon: '',
+          placeUnit: '',
+          depart: '',
+          expDuty:''
+        })"
+      >添加一条
+      </el-button>
+    </div>
+    <div v-for="(item,index) in editForm.resume" style="width:100%;display: flex;align-items: center;justify-content: space-between;margin-bottom: 10px;">
 
-          <el-col :span="4">
-            <el-input placeholder="起止年月(年.月--年.月)" v-model="item.year"></el-input>
-          </el-col>
+      <el-col :span="4">
+        <el-input v-model="item.startEndMon" placeholder="起止年月(年.月--年.月)" />
+      </el-col>
 
-          <el-col :span="3">
-            <el-input placeholder="地点" v-model="item.place"></el-input>
-          </el-col>
+      <el-col :span="3">
+        <el-input v-model="item.placeUnit" placeholder="地点" />
+      </el-col>
 
-          <el-col :span="3">
-            <el-input placeholder="部门" v-model="item.apart"></el-input>
-          </el-col>
-          <el-col :span="3">
-            <el-input placeholder="职务" v-model="item.work"></el-input>
-          </el-col>
-          <div >
-          <el-button @click="editForm.resume.splice(index,1)" type="danger" >删除
-          </el-button>
-          <el-button @click="editForm.resume.push({
-                      year: '',
-                      place: '',
-                      apart: '',
-                      work:''
-        })" icon="el-icon-circle-plus-outline" style="margin:0 0 15px 15px;" type="primary">添加一条
-          </el-button>
-        </div>
+      <el-col :span="3">
+        <el-input v-model="item.depart" placeholder="部门" />
+      </el-col>
+      <el-col :span="3">
+        <el-input v-model="item.expDuty" placeholder="职务" />
+      </el-col>
+      <div>
+        <el-button type="danger" @click="editForm.resume.splice(index,1)">删除
+        </el-button>
+      </div>
 
-       </div>
+    </div>
     <div style="margin:35px;display: flex;align-items: center;justify-content: center;">
-      <el-button @click="" style="width: 200px;height: 50px;" type="success">提交</el-button>
+      <el-button style="width: 200px;height: 50px;" type="success" @click="submit">提交</el-button>
     </div>
-    </div>
+  </div>
 
 </template>
 
 <script>
-  import {getBasePeopleCode,getSex,getPoliticalStatus,getBaseProTown,getCityByProvince,getGrade,getBachelorStudy,getBachelorDegree,getGradSchool,getGradMajor,getMasterDegree,getLastExperienceList,getDegreeList,getApplyMajor,getApplyTutor,getResearchDirection} from '@/api/doctor'
-  export default {
-    name: 'PerfectInfo',
-    data() {
-      return {
-        gradeList:[],
-        cityList:[],
-        provinceList:[],
-        majorId:'',
-        applyMajorTutorList:[],
-        applyMajorList:[],
-        lastDegreeList:[],
-        lastExperienceList:[],
-        masterWayList:[],
-        gradSchoolList:[],
-        gradMajorList:[],
-        bachelorMajorList:[],
-        bachelorStudyList:[],
-        politicalStatusList:[],
-        sexList:[],
-        peopleCodeList:[],
-        editForm:{
-          aa:'',
-          perName : '',
-          sex : '',
-          birthday : '',
-          perIdCard : '',
-          peopleCode : '',
-          politicalStatus : '',
-          hometown : '',
-          provinc : '',
-          city : '',
-          workplaceName : '',
-          grade : '',
-          address : '',
-          postalcode : '',
-          telephone : '',
-          mobilephone : '',
-          email : '',
-          profession : '',
-          bachelorStudy : '',
-          bachelorMajor : '',
-          gradSchool : '',
-          gradMajor : '',
-          gradDate : '',
-          masterWay : '',
-          lastExperience : '',
-          lastDegree : '',
-          applyMajor : '',
-          applyLanguage : '',
-          applyMajorTutor : '',
-          direction : '',
-          majorNote : '',
-          articles : '',
-          resume:[
-            {
-              year: '',
-              place: '',
-              apart: '',
-              work: '',
-            },
-          ],
-        },
-        genders: [{
-          value: '1',
-          label: '男'
-        }, {
-          value: '2',
-          label: '女'
-        }],
+import { getBasePeopleCode, getSex, getPoliticalStatus, getBaseProTown, getCityByProvince, getGrade, getBachelorStudy, getBachelorDegree, getGradSchool, getGradMajor, getInitResume, getMasterDegree, getLastExperienceList, getDegreeList, getApplyMajor, getApplyTutor, getResearchDirection, doctorRecruitSubmit, getInitInfo } from '@/api/doctor'
+export default {
+  name: 'PerfectInfo',
+  data() {
+    return {
+      gradeList: [],
+      cityList: [],
+      provinceList: [],
+      majorId: '',
+      applyMajorTutorList: [],
+      applyMajorList: [],
+      lastDegreeList: [],
+      lastExperienceList: [],
+      masterWayList: [],
+      gradSchoolList: [],
+      gradMajorList: [],
+      bachelorMajorList: [],
+      bachelorStudyList: [],
+      politicalStatusList: [],
+      sexList: [],
+      peopleCodeList: [],
+      editForm: {
+        aa: '',
+        perName: '',
+        sex: '',
+        birthday: '',
+        perIdCard: '',
+        peopleCode: '',
+        politicalStatus: '',
+        hometown: '',
+        provinc: '',
+        city: '',
+        workplaceName: '',
+        grade: '',
+        address: '',
+        postalcode: '',
+        telephone: '',
+        mobilephone: '',
+        email: '',
+        profession: '',
+        bachelorStudy: '',
+        bachelorMajor: '',
+        gradSchool: '',
+        gradMajor: '',
+        gradDate: '',
+        masterWay: '',
+        lastExperience: '',
+        lastDegree: '',
+        applyMajor: '',
+        applyMajorTutor: '',
+        direction: '',
+        majorNote: '',
+        articles: '',
+        resume: [
+          {
+            depart: '',
+            expDuty: '',
+            placeUnit: '',
+            startEndMon: ''
+          }
+        ]
+      },
+      genders: [{
+        value: '1',
+        label: '男'
+      }, {
+        value: '2',
+        label: '女'
+      }]
+    }
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    submit() {
+      if (this.perName === '' || this.perName === null) {
+        this.$message({
+          type: 'error',
+          message: '姓名不能为空'
+        })
+      } else if (this.sex === '' || this.sex === null) {
+        this.$message({
+          type: 'error',
+          message: '姓别不能为空'
+        })
+      } else if (this.birthday === '' || this.birthday === null) {
+        this.$message({
+          type: 'error',
+          message: '民族不能为空'
+        })
+      } else if (this.politicalStatus === '' || this.politicalStatus === null) {
+        this.$message({
+          type: 'error',
+          message: '政治面貌不能为空'
+        })
+      } else if (this.hometown === '' || this.hometown === null) {
+        this.$message({
+          type: 'error',
+          message: '籍贯不能为空'
+        })
+      } else if (this.province === '' || this.province === null) {
+        this.$message({
+          type: 'error',
+          message: '工作单位所在地不能为空'
+        })
+      } else if (this.city === '' || this.city === null) {
+        this.$message({
+          type: 'error',
+          message: '工作单位所在地不能为空'
+        })
+      } else if (this.workplaceName === '' || this.workplaceName === null) {
+        this.$message({
+          type: 'error',
+          message: '工作单位名称不能为空'
+        })
+      } else if (this.address === '' || this.address === null) {
+        this.$message({
+          type: 'error',
+          message: '通讯地址不能为空'
+        })
+      } else if (this.mobilephone === '' || this.mobilephone === null) {
+        this.$message({
+          type: 'error',
+          message: '移动电话不能为空'
+        })
+      } else if (this.email === '' || this.email === null) {
+        this.$message({
+          type: 'error',
+          message: '电子邮箱不能为空'
+        })
+      } else if (this.profession === '' || this.profession === null) {
+        this.$message({
+          type: 'error',
+          message: '从事专业不能为空'
+        })
+      } else if (this.bachelorStudy === '' || this.bachelorStudy === null) {
+        this.$message({
+          type: 'error',
+          message: '本科学习形式不能为空'
+        })
+      } else if (this.bachelorMajor === '' || this.bachelorMajor === null) {
+        this.$message({
+          type: 'error',
+          message: '获得学士学位专业不能为空'
+        })
+      } else if (this.gradSchool === '' || this.gradSchool === null) {
+        this.$message({
+          type: 'error',
+          message: '硕士毕业学校不能为空'
+        })
+      } else if (this.gradDate === '' || this.gradDate === null) {
+        this.$message({
+          type: 'error',
+          message: '硕士毕业年月不能为空'
+        })
+      } else if (this.gradMajor === '' || this.gradMajor === null) {
+        this.$message({
+          type: 'error',
+          message: '硕士毕业专业不能为空'
+        })
+      } else if (this.masterWay === '' || this.masterWay === null) {
+        this.$message({
+          type: 'error',
+          message: '获硕士学位方式不能为空'
+        })
+      } else if (this.lastExperience === '' || this.lastExperience === null) {
+        this.$message({
+          type: 'error',
+          message: '最后学历不能为空'
+        })
+      } else if (this.lastDegree === '' || this.lastDegree === null) {
+        this.$message({
+          type: 'error',
+          message: '最后学位不能为空'
+        })
+      } else if (this.birthday === '' || this.birthday === null) {
+        this.$message({
+          type: 'error',
+          message: '出生日期不能为空'
+        })
+      } else if (this.applyMajor === '' || this.applyMajor === null) {
+        this.$message({
+          type: 'error',
+          message: '报考专业不能为空'
+        })
+      } else if (this.applyMajorTutor === '' || this.applyMajorTutor === null) {
+        this.$message({
+          type: 'error',
+          message: '报考博导不能为空'
+        })
+      } else {
+        doctorRecruitSubmit({ perName: this.editForm.perName, sex: this.editForm.sex, birthday: this.editForm.birthday, peopleCode: this.editForm.peopleCode, politicalStatus: this.editForm.politicalStatus, hometown: this.editForm.hometown, province: this.editForm.province, city: this.editForm.city, workplaceName: this.editForm.workplaceName, grade: this.editForm.grade, postalcode: this.editForm.postalcode, telephone: this.editForm.telephone, mobilephone: this.editForm.mobilephone, email: this.editForm.email, profession: this.editForm.profession, address: this.editForm.address, bachelorStudy: this.editForm.bachelorStudy, bachelorMajor: this.editForm.bachelorMajor, gradSchool: this.editForm.gradSchool, gradMajor: this.editForm.gradMajor, gradDate: this.editForm.gradDate, masterWay: this.editForm.masterWay, lastExperience: this.editForm.lastExperience, lastDegree: this.editForm.lastDegree, applyMajor: this.editForm.applyMajor, applyMajorTutor: this.editForm.applyMajorTutor, direction: this.editForm.direction, articles: this.editForm.articles, majorNote: this.editForm.majorNote, resume: this.editForm.resume }).then(res => {
+
+        })
       }
     },
-    created() {
-      this.fetchData()
+    getCity() {
+      this.editForm.city = ''
+      getCityByProvince({ province: this.editForm.province }).then(res => {
+        this.editForm.city = ''
+        this.cityList = res.data
+      })
     },
-    methods: {
-      getCity(){
-        getCityByProvince({province:this.editForm.province}).then(res =>{
-          this.editForm.city = ''
-          this.cityList = res.data
-        })
-      },
-      getDirection(){
-        getResearchDirection({tutorId:this.editForm.applyMajorTutor}).then(res =>{
-          this.editForm.direction = res
-        })
-      },
-      getTutor(){
-        getApplyTutor({majorId:this.editForm.applyMajor}).then(res => {
+    getDirection() {
+      getResearchDirection({ tutorId: this.editForm.applyMajorTutor }).then(res => {
+        this.editForm.direction = res
+      })
+    },
+    getTutor() {
+      this.editForm.applyMajorTutor = []
+      getApplyTutor({ majorId: this.editForm.applyMajor }).then(res => {
+        if (res.re === 1) {
+          this.applyMajorTutorList = res.data
+        } else {
+          console.log(res)
+        }
+      })
+    },
+    fetchData() {
+      getInitInfo().then(res => {
+        this.editForm.perName = res.infoPersonInfoDoctorRecruit.infoPersonInfo.perName
+        this.editForm.email = res.infoPersonInfoDoctorRecruit.infoPersonInfo.email
+        this.editForm.sex = res.infoPersonInfoDoctorRecruit.infoPersonInfo.genderCode
+        this.editForm.mobilephone = res.infoPersonInfoDoctorRecruit.infoPersonInfo.mobilePhone
+        this.editForm.address = res.infoPersonInfoDoctorRecruit.infoPersonInfo.perAddress
+        this.editForm.birthday = res.infoPersonInfoDoctorRecruit.infoPersonInfo.perBirthday
+        this.editForm.perIdCard = res.infoPersonInfoDoctorRecruit.infoPersonInfo.perIdCard
+        // this.editForm.perNum = res.infoPersonInfoDoctorRecruit.infoPersonInfo.perNum
+        this.editForm.postalcode = res.infoPersonInfoDoctorRecruit.infoPersonInfo.perPostalCode
+        this.editForm.peopleCode = res.infoPersonInfoDoctorRecruit.peopleId + ''
+        // this.editForm.personId = res.infoPersonInfoDoctorRecruit.infoPersonInfo.personId
+        this.editForm.collegeId = res.infoPersonInfoDoctorRecruit.collegeId
+        this.editForm.lastDegree = res.infoPersonInfoDoctorRecruit.lastDegree
+        this.editForm.lastExperience = res.infoPersonInfoDoctorRecruit.lastStudyLevel
+        this.editForm.hometown = res.infoPersonInfoDoctorRecruit.perNativePlace
+        this.editForm.telephone = res.infoPersonInfoDoctorRecruit.perTelephone
+        this.editForm.politicalStatus = res.infoPersonInfoDoctorRecruit.politicsCode
+        this.editForm.grade = res.infoPersonInfoDoctorRecruit.proTechPositionCode
+        this.editForm.bachelorMajor = res.bachelorMajorId + ''
+        this.editForm.profession = res.devoteMajor
+        this.editForm.province = res.workProvince
+        this.editForm.city = res.workCity
+        this.editForm.bachelorStudy = res.studyForm
+        this.editForm.majorNote = res.majorNote
+        this.editForm.workplaceName = res.workUnit
+        this.editForm.gradMajor = res.masterMajorId + ''
+        this.editForm.masterWay = res.masterDegreeForm
+        this.editForm.direction = res.researchDirect
+        this.editForm.applyMajor = res.majorId + ''
+        getApplyTutor({ majorId: this.editForm.applyMajor }).then(res => {
           if (res.re === 1) {
             this.applyMajorTutorList = res.data
           } else {
             console.log(res)
           }
         })
-      },
-      fetchData(){
-        getBasePeopleCode().then(res => {
-          if (res.re === 1) {
-            this.peopleCodeList = res.data
-          } else {
-            console.log(res)
-          }
-        }),
-          getSex().then(res => {
-            if (res.re === 1) {
-              this.sexList = res.data
-            } else {
-              console.log(res)
-            }
-          }),
-          getPoliticalStatus().then(res => {
-            if (res.re === 1) {
-              this.politicalStatusList = res.data
-            } else {
-              console.log(res)
-            }
-          }),
-          getBachelorStudy().then(res => {
-            if (res.re === 1) {
-              this.bachelorStudyList = res.data
-            } else {
-              console.log(res)
-            }
-          }),
-          getBachelorDegree().then(res => {
-            if (res.re === 1) {
-              this.bachelorMajorList = res.data
-            } else {
-              console.log(res)
-            }
-          }),
-          getGradSchool().then(res => {
-            if (res.re === 1) {
-              this.gradSchoolList = res.data
-            } else {
-              console.log(res)
-            }
-          }),
-          getGradMajor().then(res => {
-            if (res.re === 1) {
-              this.gradMajorList = res.data
-            } else {
-              console.log(res)
-            }
-          }),
-          getMasterDegree().then(res => {
-            if (res.re === 1) {
-              this.masterWayList = res.data
-            } else {
-              console.log(res)
-            }
-          }),
-          getLastExperienceList().then(res => {
-            if (res.re === 1) {
-              this.lastExperienceList = res.data
-            } else {
-              console.log(res)
-            }
-          }),
-          getDegreeList().then(res => {
-            if (res.re === 1) {
-              this.lastDegreeList = res.data
-            } else {
-              console.log(res)
-            }
-          }),
-          getApplyMajor().then(res => {
-            if (res.re === 1) {
-              this.applyMajorList = res.data
-            } else {
-              console.log(res)
-            }
-          }),
-          getBaseProTown().then(res => {
-            if (res.re === 1) {
-              this.provinceList = res.data
-            } else {
-              console.log(res)
-            }
-          }),
-          getGrade().then(res => {
-            if (res.re === 1) {
-              this.gradeList = res.data
-            } else {
-              console.log(res)
-            }
-          })
-
-      },
-      }
-
+        this.editForm.applyMajorTutor = res.tutorId + ''
+        this.editForm.articles = res.articles + ''
+        this.editForm.gradSchool = res.masterCultivateUnitId + ''
+        getInitResume().then(res => {
+          this.editForm.resume = res.data
+        })
+      })
+      getBasePeopleCode().then(res => {
+        if (res.re === 1) {
+          this.peopleCodeList = res.data
+        } else {
+          console.log(res)
+        }
+      })
+      getSex().then(res => {
+        if (res.re === 1) {
+          this.sexList = res.data
+        } else {
+          console.log(res)
+        }
+      })
+      getPoliticalStatus().then(res => {
+        if (res.re === 1) {
+          this.politicalStatusList = res.data
+        } else {
+          console.log(res)
+        }
+      })
+      getBachelorStudy().then(res => {
+        if (res.re === 1) {
+          this.bachelorStudyList = res.data
+        } else {
+          console.log(res)
+        }
+      })
+      getBachelorDegree().then(res => {
+        if (res.re === 1) {
+          this.bachelorMajorList = res.data
+        } else {
+          console.log(res)
+        }
+      })
+      getGradSchool().then(res => {
+        if (res.re === 1) {
+          this.gradSchoolList = res.data
+        } else {
+          console.log(res)
+        }
+      })
+      getGradMajor().then(res => {
+        if (res.re === 1) {
+          this.gradMajorList = res.data
+        } else {
+          console.log(res)
+        }
+      })
+      getMasterDegree().then(res => {
+        if (res.re === 1) {
+          this.masterWayList = res.data
+        } else {
+          console.log(res)
+        }
+      })
+      getLastExperienceList().then(res => {
+        if (res.re === 1) {
+          this.lastExperienceList = res.data
+        } else {
+          console.log(res)
+        }
+      })
+      getDegreeList().then(res => {
+        if (res.re === 1) {
+          this.lastDegreeList = res.data
+        } else {
+          console.log(res)
+        }
+      })
+      getApplyMajor().then(res => {
+        if (res.re === 1) {
+          this.applyMajorList = res.data
+        } else {
+          console.log(res)
+        }
+      })
+      getBaseProTown().then(res => {
+        if (res.re === 1) {
+          this.provinceList = res.data
+        } else {
+          console.log(res)
+        }
+      })
+      getGrade().then(res => {
+        if (res.re === 1) {
+          this.gradeList = res.data
+        } else {
+          console.log(res)
+        }
+      })
+    }
   }
+
+}
 </script>
 <style scoped>
   .g-title {

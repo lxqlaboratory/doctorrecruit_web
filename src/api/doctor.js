@@ -147,3 +147,10 @@ export function getCityByProvince(data) {
     data: data
   })
 }
+export function doctorRecruitSubmit(data) {
+  return request({
+    url: '/web/doctorRecruitSubmit',
+    method: 'POST',
+    data: data
+  })
+}
