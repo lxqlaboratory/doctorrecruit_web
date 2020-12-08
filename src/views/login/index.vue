@@ -56,7 +56,8 @@
           <div style="display: flex;flex-direction: row;justify-content: space-between;align-items: center;width: 100%;margin-top: 25px;color:#ff9419">
             <el-checkbox v-model="ydxy"><span
               style="font-size: 13px"
-            >记住密码</span></el-checkbox>
+            >记住密码   </span>  </el-checkbox>
+            <div  style="font-size: 13px" > 忘记密码？</div>
           </div>
 
         </div>

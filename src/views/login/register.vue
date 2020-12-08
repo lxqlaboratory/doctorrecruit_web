@@ -1,5 +1,5 @@
 <template>
-  <div  class="prologin-container">
+  <div class="prologin-container">
     <div class="header">
 
       <!--标题图-->
@@ -7,7 +7,7 @@
       <img style="width: 263px;height: 82px;" src="/vue/login/logo.png">
       <!--软件-->
       <!--<img style="width: 350px;height: 82px;" src="http://www.sc.sdu.edu.cn/images/logo.png">-->
-      <span style="margin-left:15px;font-size: 36px;font-weight: bold;color: white" >临床博士招生管理系统</span>
+      <span style="margin-left:15px;font-size: 36px;font-weight: bold;color: white">临床博士招生管理系统</span>
     </div>
     <div class="main-content">
       <div class="login-box">
@@ -15,38 +15,38 @@
           <div style="width: 100%;">
             <div style="text-align: center;font-size: 25px; ">欢迎注册： 山东大学临床博士招生管理系统</div>
             <div style="position: relative;width: 100%;margin-top: 15px;">
-               <span class="svg-container" >
-               登录账号:
-               </span>
-              <input   class="login-form-input" style="width: 50%">
+              <span class="svg-container">
+                登录账号:
+              </span>
+              <input v-model="loginName" class="login-form-input" style="width: 50%">
 
             </div>
             <div style="position: relative;width: 100%;margin-top: 15px;">
-               <span class="svg-container" >
-              身份证号:
-               </span>
-              <input    class="login-form-input" style="width: 50%">
+              <span class="svg-container">
+                身份证号:
+              </span>
+              <input v-model="perIdCard" class="login-form-input" style="width: 50%">
             </div>
 
             <div style="position: relative;width: 100%;margin-top: 15px;">
-               <span class="svg-container" >
-              密码:
-               </span>
-              <input  type="password"  class="login-form-input" style="width: 50%">
+              <span class="svg-container">
+                密码:
+              </span>
+              <input v-model="passWord" type="password" class="login-form-input" style="width: 50%">
             </div>
 
             <div style="position: relative;width: 100%;margin-top: 15px;">
-               <span class="svg-container" >
-              再次确认密码:
-               </span>
-              <input type="password"   class="login-form-input" style="width: 50%">
+              <span class="svg-container">
+                再次确认密码:
+              </span>
+              <input v-model="passWord1" type="password" class="login-form-input" style="width: 50%">
             </div>
 
             <el-row style=" position: relative; margin-top: 15px; width: 100%">
-              <el-col style="width: 25%;margin-left: 170px" >
-                <el-input   maxlength="4" type="text" placeholder="请输入验证码" @keyup.enter.native="login" />
+              <el-col style="width: 25%;margin-left: 170px">
+                <el-input maxlength="4"  v-model="code"  type="text" placeholder="请输入验证码" @keyup.enter.native="login" />
               </el-col>
-              <el-col  style="width: 40%">
+              <el-col style="width: 40%">
                 <div @click="refreshCode">
                   <!--验证码组件-->
                   <s-identify :identify-code="identifyCode" />
@@ -57,20 +57,20 @@
             <div style="width: 100%;margin-top: 10px;">
               <el-row>
                 <el-col>
-                  <el-button  class="loginBtn" style=" width: 50%;  background: #409EFF;color: white;" :loading="loading" @click="reDirect">注册</el-button>
+                  <el-button class="loginBtn" style=" width: 50%;  background: #409EFF;color: white;" :loading="loading" @click="handleLogin">注册</el-button>
                 </el-col>
               </el-row>
             </div>
           </div>
         </div>
       </div>
-    <div>
-      <!--背景更换-->
-      <!--能源动力-->
-      <img class="bgflux" src="/vue/login/back1.png">
+      <div>
+        <!--背景更换-->
+        <!--能源动力-->
+        <img class="bgflux" src="/vue/login/back1.png">
       <!--软件-->
       <!--<img class="bgflux" src="@/assets/login/rjxyBackground.jpg">-->
-    </div>
+      </div>
 
     </div>
 
@@ -81,10 +81,9 @@
       <div class="notice-title">用户注册</div>
       <!--<div class="notice-title">软件学院本科实践教学网络平台</div>-->
 
-
       <span style="color: gray;font-size: 14px;line-height: 200%;">
-        <dd></dd>
-        <dd></dd>
+        <dd />
+        <dd />
       </span>
     </div>
     <div class="login-bottom">Copyright © 2018.Shandong university.    支持邮箱 doctorrecruit@email.sdu.edu.cn</div>
@@ -92,11 +91,84 @@
 </template>
 
 <script>
-  import SIdentify from '../../components/Sidentify/index'
-    export default {
-        name: "register",
-      components: { SIdentify },
+import SIdentify from '../../components/Sidentify/index'
+import { registerNewDoctorInfo } from '@/api/login'
+export default {
+  name: 'Register',
+  components: { SIdentify },
+  data() {
+    return {
+      loginName: '',
+      perIdCard: '',
+      passWord: '',
+      identifyCode: '',
+      code: '',
+      identifyCodes: '1234567890',
+      passWord1: ''
     }
+  },
+  created() {
+    this.refreshCode()
+  },
+  mounted() {
+    this.identifyCode = ''
+    this.makeCode(this.identifyCodes, 4)
+  },
+  methods: {
+    handleLogin() {
+      if (this.code === '') {
+        this.$message({
+          type: 'error',
+          message: '验证码不能为空'
+        })
+      } else if (this.identifyCode !== this.code) {
+        this.code = ''
+        this.refreshCode()
+        this.$message({
+          type: 'error',
+          message: '验证码错误'
+        })
+      } else if (this.passWord != this.passWord1) {
+        this.$message({
+          type: 'error',
+          message: '两次密码不一致'
+        })
+      } else {
+        registerNewDoctorInfo({
+          loginName: this.loginName,
+          perIdCard: this.perIdCard,
+          passWord: this.passWord
+        }).then(response => {
+          if (response.data.errorType == 0) {
+            this.$router.push({path: '/dashboard'})
+          } else if (response.data.errorType == 1 || response.data.errorType == 2 || response.data.errorType == 3) {
+            this.$message({
+              type: 'error',
+              message: response.data.errorMsg
+            })
+          }
+
+        })
+      }
+    },
+    randomNum(min, max) {
+      return Math.floor(Math.random() * (max - min) + min)
+    },
+    reDirect() {
+      this.$router.push({ path: '/register' })
+    },
+    refreshCode() {
+      this.identifyCode = ''
+      this.makeCode(this.identifyCodes, 4)
+    },
+    makeCode(o, l) {
+      for (let i = 0; i < l; i++) {
+        this.identifyCode += this.identifyCodes[this.randomNum(0, this.identifyCodes.length)]
+      }
+      console.log(this.identifyCode)
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -123,8 +195,6 @@
 <style lang="scss" scoped>
   $topicColor:#409EFF;
 
-
-
   .el-checkbox__input.is-checked.el-checkbox__inner{
     background-color: #409EFF;
     border-color: #409EFF;
@@ -133,9 +203,6 @@
     background-color: #409EFF;
     border-color: #409EFF;
   }
-
-
-
 
   .input-form {
     min-height: 100%;
@@ -254,6 +321,4 @@
   }
 
 </style>
-
-
 
