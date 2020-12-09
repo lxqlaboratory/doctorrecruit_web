@@ -2,6 +2,22 @@
   <div class="app-container">
     <div class="g-title">完善信息</div>
     <el-form :model="editForm" label-width="40%" style="width: 100%;align-content: center;display: contents">
+      <div style="border: 1px solid seagreen;width: 150px;height: 200px;position: absolute; right:20px;">
+        <img :src="signature" alt="点击上传图片"  @click="uploadA" style="width: 150px;height: 200px;z-index: 99;position: absolute;">
+        <el-upload
+          :on-preview="handlePreview"
+          :on-remove="handleRemove"
+          :action="serverAddres+url"
+          :data="{'applyNum':applyNum}"
+          :multiple="false"
+          accepttype=".jpg"
+          :on-success="onSuccess"
+          style="display: none"
+        >
+          <el-button size="small" type="primary" ref="import"></el-button>
+        </el-upload>
+      </div>
+
       <el-row>
         <el-col :span="9">
           <el-form-item label="姓名" prop="groupName">
@@ -20,6 +36,7 @@
             </el-select>
           </el-form-item>
         </el-col>
+
       </el-row>
       <el-row>
         <el-col :span="9">
@@ -311,6 +328,8 @@
         </el-col>
       </el-row>
     </el-form>
+
+
     <div class="g-title">个人简历
       <el-button
         icon="el-icon-circle-plus-outline"
@@ -359,6 +378,10 @@ export default {
   name: 'PerfectInfo',
   data() {
     return {
+      applyNum: '',
+      signature: '',
+      url: '/func/web/uploadImageFileNew',
+      serverAddres:'',
       gradeList: [],
       cityList: [],
       provinceList: [],
@@ -429,6 +452,30 @@ export default {
     this.fetchData()
   },
   methods: {
+    handleRemove(file, fileList) {
+      console.log(file, fileList);
+    },
+    handlePreview(file) {
+      console.log(file);
+    },
+    onSuccess(response, file, fileList) {
+      if(response.re == 1){
+        this.$message({
+          message: '上传成功',
+          type: 'success'
+        });
+        this.fetchData()
+      }
+      else{
+        this.$message({
+          message: response.data,
+          type: 'error'
+        });
+      }
+    },
+    uploadA() {
+      this.$refs.import.$el.click()
+    },
     submit() {
       if (this.editForm.perName === '' || this.editForm.perName === undefined) {
         this.$message({
@@ -594,7 +641,11 @@ export default {
       })
     },
     fetchData() {
+
+      this.url = '/func/web/uploadImageFileNew'
+      this.serverAddres = this.GLOBAL.servicePort
       getInitInfo().then(res => {
+        this.applyNum = res.applyNum
         this.editForm.perName = res.infoPersonInfoDoctorRecruit.infoPersonInfo.perName
         this.editForm.email = res.infoPersonInfoDoctorRecruit.infoPersonInfo.email
         if (res.infoPersonInfoDoctorRecruit.infoPersonInfo.genderCode !== '0') {
