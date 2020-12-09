@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <div class="g-title">完善信息</div>
-    <el-form :model="editForm" label-width="40%" style="width: 100%;align-content: center;">
+    <el-form :model="editForm" label-width="40%" style="width: 100%;align-content: center;display: contents">
       <el-row>
         <el-col :span="9">
           <el-form-item label="姓名" prop="groupName">
@@ -9,7 +9,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="9">
-          <el-form-item label="性别">
+          <el-form-item style="margin-left: 100px;" label="性别">
             <el-select v-model="editForm.sex" style="width: 200px" placeholder="请选择">
               <el-option
                 v-for="item in sexList"
@@ -34,7 +34,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="9">
-          <el-form-item label="证件号码">
+          <el-form-item style="margin-left: 100px;" label="证件号码">
             <el-input style="width: 200px;" v-model="editForm.perIdCard" disabled />
           </el-form-item>
         </el-col>
@@ -53,7 +53,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="9">
-          <el-form-item label="政治面貌">
+          <el-form-item style="margin-left: 100px;" label="政治面貌">
             <el-select v-model="editForm.politicalStatus" style="width: 200px" placeholder="请选择">
               <el-option
                 v-for="item in politicalStatusList"
@@ -72,7 +72,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="9">
-          <el-form-item label="工作单位所在地">
+          <el-form-item style="margin-left: 100px;" label="工作单位所在地">
             <el-select v-model="editForm.province" style="width: 100px" placeholder="请选择" @change="getCity">
               <el-option
                 v-for="item in provinceList"
@@ -98,7 +98,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="9">
-          <el-form-item label="职称">
+          <el-form-item style="margin-left: 100px;" label="职称">
             <el-select v-model="editForm.grade" style="width: 200px" placeholder="请选择">
               <el-option
                 v-for="item in gradeList"
@@ -117,7 +117,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="9">
-          <el-form-item label="邮政编码">
+          <el-form-item style="margin-left: 100px;" label="邮政编码">
             <el-input style="width: 200px" v-model="editForm.postalcode" />
           </el-form-item>
         </el-col>
@@ -129,7 +129,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="9">
-          <el-form-item label="移动电话">
+          <el-form-item style="margin-left: 100px;" label="移动电话">
             <el-input style="width: 200px" v-model="editForm.mobilephone" />
           </el-form-item>
         </el-col>
@@ -141,7 +141,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="9">
-          <el-form-item label="从事专业">
+          <el-form-item style="margin-left: 100px;" label="从事专业">
             <el-input style="width: 200px" v-model="editForm.profession" />
           </el-form-item>
         </el-col>
@@ -160,7 +160,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="9">
-          <el-form-item label="获学士学位专业">
+          <el-form-item style="margin-left: 100px;" label="获学士学位专业">
             <el-select v-model="editForm.bachelorMajor" style="width: 200px" placeholder="请选择">
               <el-option
                 v-for="item in bachelorMajorList"
@@ -200,7 +200,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="9">
-          <el-form-item label="毕业专业备注">
+          <el-form-item style="margin-left: 100px;" label="毕业专业备注">
             <el-input style="width: 200px" v-model="editForm.majorNote" />
           </el-form-item>
         </el-col>
@@ -218,7 +218,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="9">
-          <el-form-item label="获硕士学位方式">
+          <el-form-item style="margin-left: 100px;" label="获硕士学位方式">
             <el-select v-model="editForm.masterWay" style="width: 200px" placeholder="请选择">
               <el-option
                 v-for="item in masterWayList"
@@ -244,7 +244,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="9">
-          <el-form-item label="最后学位">
+          <el-form-item style="margin-left: 100px;" label="最后学位">
             <el-select v-model="editForm.lastDegree" style="width: 200px" placeholder="请选择">
               <el-option
                 v-for="item in lastDegreeList"
@@ -270,7 +270,7 @@
           </el-form-item>
         </el-col>
         <el-col :span="9">
-          <el-form-item label="报考语言">
+          <el-form-item style="margin-left: 100px;" label="报考语言">
             <el-input style="width: 200px" value="英语" disabled />
           </el-form-item>
         </el-col>
