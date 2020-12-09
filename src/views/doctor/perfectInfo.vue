@@ -625,7 +625,7 @@ export default {
         }
         this.editForm.masterWay = res.masterDegreeForm
         this.editForm.direction = res.researchDirect
-        if (res.applyMajor !== undefined) {
+        if (res.majorId !== undefined) {
           this.editForm.applyMajor = res.majorId + ''
           getApplyTutor({ majorId: this.editForm.applyMajor }).then(res => {
             if (res.re === 1) {
@@ -634,10 +634,11 @@ export default {
               console.log(res)
             }
           })
+          if (res.tutorId !== undefined) {
+            this.editForm.applyMajorTutor = res.tutorId + ''
+          }
         }
-        if (res.tutorId !== undefined) {
-          this.editForm.applyMajorTutor = res.tutorId + ''
-        }
+
         if (res.articles !== undefined) {
           this.editForm.articles = res.articles + ''
         }
