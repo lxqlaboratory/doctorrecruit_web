@@ -217,3 +217,12 @@ export function getClassRoom() {
     data: {}
   })
 }
+
+
+export function getBooleanScore() {
+  return request({
+    url: '/web/getBooleanScore',
+    method: 'POST',
+    data: {}
+  })
+}

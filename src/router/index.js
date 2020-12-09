@@ -117,7 +117,8 @@ export const constantRoutes = [
       meta: { title: '下载资格审查表', icon: 'example'}
     }],
     meta: { title: '下载资格审查表', icon: 'dashboard',roles: ['2851'] }
-  },{
+  },
+  {
     path: '/doctor',
     component: Layout,
     children: [{
@@ -126,7 +127,18 @@ export const constantRoutes = [
       component: () => import('@/views/doctor/queryExamRoom'),
       meta: { title: '考场信息查询', icon: 'example'}
     }],
-    meta: { title: '考场信息查询', icon: 'dashboard',roles: ['2851'] }
+    meta: { title: '考场信息查询', icon: 'dashboard',roles: ['2852'] }
+  },
+  {
+    path: '/doctor',
+    component: Layout,
+    children: [{
+      path: 'clinicPrintAdmission',
+      name: 'clinicPrintAdmission',
+      component: () => import('@/views/doctor/clinicPrintAdmission'),
+      meta: { title: '打印准考证', icon: 'example'}
+    }],
+    meta: { title: '打印准考证', icon: 'dashboard',roles: ['2849'] }
   },
   {
     path: '/doctor',
