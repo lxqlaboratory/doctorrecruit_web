@@ -525,6 +525,11 @@ export default {
           type: 'error',
           message: '获硕士学位方式不能为空'
         })
+      } else if (this.editForm.grade === '' || this.editForm.grade === undefined) {
+        this.$message({
+          type: 'error',
+          message: '职称不能为空'
+        })
       } else if (this.editForm.lastExperience === '' || this.editForm.lastExperience === undefined) {
         this.$message({
           type: 'error',
