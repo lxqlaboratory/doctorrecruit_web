@@ -1,11 +1,11 @@
 <template>
   <div class="app-container">
     <div align="center" style="font-size: 26px;font-weight: bold;color: #304156 ">支付检查 </div><br>
-    <div style="border: 1px solid black;margin-left: 30%;margin-right: 30%;">
+    <div style="border: 1px solid black;margin-left: 20%;margin-right: 20%;">
       <el-form ref="editForm" :model="editForm" :rules="editRules" label-position="left" label-width="100px" status-icon style="margin-top: 15px;">
         <br>
         <el-row align="middle">
-          <el-col :span="4">
+          <el-col :span="6">
             &nbsp;
           </el-col>
           <el-col :span="10">
@@ -15,7 +15,7 @@
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="4">
+          <el-col :span="6">
             &nbsp;
           </el-col>
           <el-col :span="10">
@@ -25,7 +25,7 @@
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="4">
+          <el-col :span="6">
             &nbsp;
           </el-col>
           <el-col :span="10">
@@ -35,7 +35,7 @@
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="4">
+          <el-col :span="6">
             &nbsp;
           </el-col>
           <el-col :span="10">
@@ -45,7 +45,7 @@
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="4">
+          <el-col :span="6">
             &nbsp;
           </el-col>
           <el-col :span="10">
@@ -55,7 +55,7 @@
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="4">
+          <el-col :span="6">
           &nbsp;
           </el-col>
           <el-col :span="10">

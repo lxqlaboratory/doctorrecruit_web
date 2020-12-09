@@ -73,14 +73,14 @@
         </el-col>
         <el-col :span="9">
           <el-form-item style="margin-left: 100px;" label="工作单位所在地">
-            <el-select v-model="editForm.province" style="width: 100px" placeholder="请选择" @change="getCity">
+            <el-select v-model="editForm.province" style="width: 200px" placeholder="请选择" @change="getCity">
               <el-option
                 v-for="item in provinceList"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
               />
-            </el-select><el-select v-model="editForm.city" style="width: 100px" placeholder="请选择">
+            </el-select><el-select v-model="editForm.city" style="width: 200px" placeholder="请选择">
               <el-option
                 v-for="item in cityList"
                 :key="item.value"
