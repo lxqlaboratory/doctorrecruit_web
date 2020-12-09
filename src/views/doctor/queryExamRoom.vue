@@ -2,7 +2,7 @@
   <div class="app-container">
     <div align="center" style="font-size: 26px;font-weight: bold;color: #304156 ">考场信息查询 </div>
     <div class="g-title">缴费信息</div>
-    <div style="padding-left:35px;width: 70%;min-height: 10vh;">
+    <div style="padding-left:35px;width: 100%;min-height: 10vh;">
       <el-row :gutter="20">
         <el-col :span="8">
           <label>缴费状态:</label>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="g-title">考试信息</div>
-    <div style="padding-left:35px;width: 70%;min-height: 10vh;">
+    <div style="padding-left:35px;width: 100%;min-height: 10vh;">
       <el-row :gutter="20">
         <el-col :span="8">
           <label>准考证号:</label>
@@ -44,7 +44,7 @@
         </el-col>
         <el-col :span="8">
           <label>教室:</label>
-          <span>{{classRoomName}}</span>
+          <span>{{classroomName}}</span>
         </el-col>
         <el-col :span="8">
           <label>是否现场确认:</label>
@@ -100,11 +100,11 @@
             getExamSeatNum().then(res => {
               this.examSeatNum = res
             }),
-            // getClassRoom().then(res => {
-            //   this.seatCount =res.seatCount
-            //   this.classroomName = res.classroomName
-            //   this.exameRoomNum = res.exameRoomNum
-            // }),
+            getClassRoom().then(res => {
+              this.seatCount =res.seatCount
+              this.classroomName = res.classroomName
+              this.exameRoomNum = res.exameRoomNum
+            }),
             isCheck().then(res => {
               this.checkState =res
             })
