@@ -22,7 +22,7 @@
     <div align="center" style="font-size: 20px;font-weight: bold;color: darkred ">
       <label>缴费状态:</label>
     </div>
-    <div style="border: 1px solid #336699;margin-left: 10%;margin-right: 10%;"><br>
+    <div style="border: 1px solid #336699;margin-left: 10%;margin-right: 5%;"><br>
       <el-form ref="form" :model="form" label-width="40%" >
         <el-row>
           <el-col :span="11">
@@ -68,14 +68,9 @@
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="11">
+          <el-col :span="17">
             <el-form-item align="center">
               <el-button type="primary" @click="submit()">提交</el-button>
-            </el-form-item>
-          </el-col>
-          <el-col :span="11">
-            <el-form-item align="center">
-              <el-button @click="">重置</el-button>
             </el-form-item>
           </el-col>
         </el-row>
@@ -136,7 +131,7 @@ export default {
 </script>
 <style scoped>
   .content2{
-    width:80%;
+    width:85%;
     border-top: 1px solid #336699;
     border-left: 1px solid #336699;
     border-spacing: 0;/*去掉单元格间隙*/
