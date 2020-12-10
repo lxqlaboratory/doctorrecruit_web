@@ -2,26 +2,24 @@
   <div class="app-container">
     <div class="g-title">完善信息</div>
 
-
-
     <el-form :model="editForm" label-width="40%" style="width: 100%;align-content: center;display: contents">
       <div style="border: 1px solid seagreen;width: 150px;height: 200px;position: absolute; right:20px;">
 
-        <img :src="signature" alt="未上传图片" @click="sctp"  style="width: 150px;height: 200px;z-index: 99;position: absolute;">
+        <img :src="signature" alt="未上传图片" style="width: 150px;height: 200px;z-index: 99;position: absolute;" @click="sctp">
 
       </div>
       <fileupload
         url="/web/uploadImageFileNew"
         accepttype=".jpg"
+        style="position: absolute; right:60px;top: 320px;z-index: 99;"
         @successcallback="onSuccess"
         @preview="onPreview"
-        style="position: absolute; right:60px;top: 320px;z-index: 99;"
       >上传图片
       </fileupload>
       <el-row>
         <el-col :span="9">
           <el-form-item label="姓名" prop="groupName">
-            <el-input style="width: 200px;" v-model="editForm.perName" />
+            <el-input v-model="editForm.perName" style="width: 200px;" />
           </el-form-item>
         </el-col>
         <el-col :span="9">
@@ -52,7 +50,7 @@
         </el-col>
         <el-col :span="9">
           <el-form-item style="margin-left: 100px;" label="证件号码">
-            <el-input style="width: 200px;" v-model="editForm.perIdCard" disabled />
+            <el-input v-model="editForm.perIdCard" style="width: 200px;" disabled />
           </el-form-item>
         </el-col>
       </el-row>
@@ -85,7 +83,7 @@
       <el-row>
         <el-col :span="9">
           <el-form-item label="籍贯" prop="groupName">
-            <el-input style="width: 200px" v-model="editForm.hometown" />
+            <el-input v-model="editForm.hometown" style="width: 200px" />
           </el-form-item>
         </el-col>
         <el-col :span="9">
@@ -111,7 +109,7 @@
       <el-row>
         <el-col :span="9">
           <el-form-item label="工作单位名称" prop="groupName">
-            <el-input style="width: 200px" v-model="editForm.workplaceName" />
+            <el-input v-model="editForm.workplaceName" style="width: 200px" />
           </el-form-item>
         </el-col>
         <el-col :span="9">
@@ -130,36 +128,36 @@
       <el-row>
         <el-col :span="9">
           <el-form-item label="通讯地址" prop="groupName">
-            <el-input style="width: 200px" v-model="editForm.address" />
+            <el-input v-model="editForm.address" style="width: 200px" />
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item style="margin-left: 100px;" label="邮政编码">
-            <el-input style="width: 200px" v-model="editForm.postalcode" />
+            <el-input v-model="editForm.postalcode" style="width: 200px" />
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
           <el-form-item label="固定电话" prop="groupName">
-            <el-input style="width: 200px" v-model="editForm.telephone" />
+            <el-input v-model="editForm.telephone" style="width: 200px" />
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item style="margin-left: 100px;" label="移动电话">
-            <el-input style="width: 200px" v-model="editForm.mobilephone" />
+            <el-input v-model="editForm.mobilephone" style="width: 200px" />
           </el-form-item>
         </el-col>
       </el-row>
       <el-row>
         <el-col :span="9">
           <el-form-item label="电子邮箱" prop="groupName">
-            <el-input style="width: 200px" v-model="editForm.email" />
+            <el-input v-model="editForm.email" style="width: 200px" />
           </el-form-item>
         </el-col>
         <el-col :span="9">
           <el-form-item style="margin-left: 100px;" label="从事专业">
-            <el-input style="width: 200px" v-model="editForm.profession" />
+            <el-input v-model="editForm.profession" style="width: 200px" />
           </el-form-item>
         </el-col>
       </el-row>
@@ -218,7 +216,7 @@
         </el-col>
         <el-col :span="9">
           <el-form-item style="margin-left: 100px;" label="毕业专业备注">
-            <el-input style="width: 200px" v-model="editForm.majorNote" />
+            <el-input v-model="editForm.majorNote" style="width: 200px" />
           </el-form-item>
         </el-col>
       </el-row>
@@ -309,7 +307,7 @@
       <el-row>
         <el-col :span="9">
           <el-form-item label="研究方向" prop="groupName">
-            <el-input style="width: 200px" v-model="editForm.direction" disabled />
+            <el-input v-model="editForm.direction" style="width: 200px" disabled />
           </el-form-item>
         </el-col>
       </el-row>
@@ -317,8 +315,8 @@
         <el-col :span="9">
           <el-form-item label="发表文章情况">
             <el-input
-              style="width: 600px"
               v-model="editForm.articles"
+              style="width: 600px"
               :rules=" [ { min: 0, max:2000, message: '长度小于2000字符', trigger: 'blur' }]"
               placeholder="限填写一篇"
               type="textarea"
@@ -328,7 +326,6 @@
         </el-col>
       </el-row>
     </el-form>
-
 
     <div class="g-title">个人简历
       <el-button
@@ -373,15 +370,16 @@
 </template>
 
 <script>
-  import fileupload from '../../components/upload/fileupload'
-import { getBasePeopleCode, getSex, getPoliticalStatus, getBaseProTown, getCityByProvince, getGrade, getBachelorStudy, getBachelorDegree, getGradSchool, getGradMajor, getInitResume, getMasterDegree, getLastExperienceList, getDegreeList, getApplyMajor, getApplyTutor, getResearchDirection, doctorRecruitSubmit, getInitInfo } from '@/api/doctor'
+import fileupload from '../../components/upload/fileupload'
+import { getBasePeopleCode, getImage, getSex, getPoliticalStatus, getBaseProTown, getCityByProvince, getGrade, getBachelorStudy, getBachelorDegree, getGradSchool, getGradMajor, getInitResume, getMasterDegree, getLastExperienceList, getDegreeList, getApplyMajor, getApplyTutor, getResearchDirection, doctorRecruitSubmit, getInitInfo } from '@/api/doctor'
 export default {
   name: 'PerfectInfo',
+  components: { fileupload },
   data() {
     return {
       signature: '',
       url: '/func/web/uploadImageFileNew',
-      serverAddres:'',
+      serverAddres: '',
       gradeList: [],
       cityList: [],
       provinceList: [],
@@ -448,30 +446,29 @@ export default {
       }]
     }
   },
-  components: { fileupload },
   created() {
     this.fetchData()
   },
   methods: {
+
     handleRemove(file, fileList) {
-      console.log(file, fileList);
+      console.log(file, fileList)
     },
     handlePreview(file) {
-      console.log(file);
+      console.log(file)
     },
     onSuccess(response, file, fileList) {
-      if(response.re == 1){
+      if (response.re == 1) {
         this.$message({
           message: '上传成功',
           type: 'success'
-        });
+        })
         this.fetchData()
-      }
-      else{
+      } else {
         this.$message({
           message: response.data,
           type: 'error'
-        });
+        })
       }
     },
     sctp() {
@@ -642,11 +639,9 @@ export default {
       })
     },
     fetchData() {
-
       this.url = '/func/web/uploadImageFileNew'
       this.serverAddres = this.GLOBAL.servicePort
       getInitInfo().then(res => {
-
         this.editForm.perName = res.infoPersonInfoDoctorRecruit.infoPersonInfo.perName
         this.editForm.email = res.infoPersonInfoDoctorRecruit.infoPersonInfo.email
         if (res.infoPersonInfoDoctorRecruit.infoPersonInfo.genderCode !== '0') {
@@ -713,6 +708,9 @@ export default {
         } else {
           console.log(res)
         }
+      })
+      getImage().then(res => {
+        this.signature = res
       })
       getSex().then(res => {
         if (res.re === 1) {

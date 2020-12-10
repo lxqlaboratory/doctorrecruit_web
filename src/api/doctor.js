@@ -226,3 +226,10 @@ export function getBooleanScore() {
     data: {}
   })
 }
+export function getImage() {
+  return request({
+    url: '/web/getImage',
+    method: 'POST',
+    data: {}
+  })
+}
