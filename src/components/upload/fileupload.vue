@@ -13,7 +13,7 @@
       :limit="limitnum"
       :on-preview="onPreview"
     >
-      <el-button size="small" class="styleBtn">
+      <el-button size="small" class="styleBtn" >
         <slot />
       </el-button>
       <div slot="tip" class="el-upload__tip">{{ remarks }}</div>
@@ -67,6 +67,9 @@ export default {
     },
     remove: function(file) {
       console.log(file)
+    },
+    parentHandleclick(){
+
     },
     uploadSuccess(response, file, fileList) {
       this.$emit('successcallback', response, file)

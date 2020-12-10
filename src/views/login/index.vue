@@ -176,7 +176,6 @@ export default {
               // 清空Cookie
               _this.clearCookie()
             }
-
             this.$router.push({path: '/dashboard'})
           } else {
             this.$message({

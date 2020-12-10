@@ -1,23 +1,23 @@
 <template>
   <div class="app-container">
     <div class="g-title">完善信息</div>
+
+
+
     <el-form :model="editForm" label-width="40%" style="width: 100%;align-content: center;display: contents">
       <div style="border: 1px solid seagreen;width: 150px;height: 200px;position: absolute; right:20px;">
-        <img :src="signature" alt="点击上传图片"  @click="uploadA" style="width: 150px;height: 200px;z-index: 99;position: absolute;">
-        <el-upload
-          :on-preview="handlePreview"
-          :on-remove="handleRemove"
-          :action="serverAddres+url"
-          :data="{'applyNum':applyNum}"
-          :multiple="false"
-          accepttype=".jpg"
-          :on-success="onSuccess"
-          style="display: none"
-        >
-          <el-button size="small" type="primary" ref="import"></el-button>
-        </el-upload>
-      </div>
 
+        <img :src="signature" alt="未上传图片" @click="sctp"  style="width: 150px;height: 200px;z-index: 99;position: absolute;">
+
+      </div>
+      <fileupload
+        url="/web/uploadImageFileNew"
+        accepttype=".jpg"
+        @successcallback="onSuccess"
+        @preview="onPreview"
+        style="position: absolute; right:60px;top: 320px;z-index: 99;"
+      >上传图片
+      </fileupload>
       <el-row>
         <el-col :span="9">
           <el-form-item label="姓名" prop="groupName">
@@ -373,12 +373,12 @@
 </template>
 
 <script>
+  import fileupload from '../../components/upload/fileupload'
 import { getBasePeopleCode, getSex, getPoliticalStatus, getBaseProTown, getCityByProvince, getGrade, getBachelorStudy, getBachelorDegree, getGradSchool, getGradMajor, getInitResume, getMasterDegree, getLastExperienceList, getDegreeList, getApplyMajor, getApplyTutor, getResearchDirection, doctorRecruitSubmit, getInitInfo } from '@/api/doctor'
 export default {
   name: 'PerfectInfo',
   data() {
     return {
-      applyNum: '',
       signature: '',
       url: '/func/web/uploadImageFileNew',
       serverAddres:'',
@@ -448,6 +448,7 @@ export default {
       }]
     }
   },
+  components: { fileupload },
   created() {
     this.fetchData()
   },
@@ -473,8 +474,8 @@ export default {
         });
       }
     },
-    uploadA() {
-      this.$refs.import.$el.click()
+    sctp() {
+      this.$refs.okdo.submit
     },
     submit() {
       if (this.editForm.perName === '' || this.editForm.perName === undefined) {
@@ -645,7 +646,7 @@ export default {
       this.url = '/func/web/uploadImageFileNew'
       this.serverAddres = this.GLOBAL.servicePort
       getInitInfo().then(res => {
-        this.applyNum = res.applyNum
+
         this.editForm.perName = res.infoPersonInfoDoctorRecruit.infoPersonInfo.perName
         this.editForm.email = res.infoPersonInfoDoctorRecruit.infoPersonInfo.email
         if (res.infoPersonInfoDoctorRecruit.infoPersonInfo.genderCode !== '0') {
