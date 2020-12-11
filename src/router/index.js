@@ -103,6 +103,12 @@ export const constantRoutes = [
         component: () => import('@/views/doctor/recruitFeeEbankPaymentRequest'),
         hidden:true
       },
+      {
+        path: 'RecruitFeeEbankPaymentReturn',
+        name: 'RecruitFeeEbankPaymentReturn',
+        component: () => import('@/views/doctor/recruitFeeEbankPaymentReturn'),
+        hidden:true
+      },
     ],
 
     meta: { title: '临床博士网银缴费', icon: 'dashboard',roles: ['2850'] }

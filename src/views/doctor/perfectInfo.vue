@@ -341,7 +341,6 @@
       </el-button>
     </div>
     <div v-for="(item,index) in editForm.resume" style="width:100%;display: flex;align-items: center;justify-content: space-between;margin-bottom: 10px;">
-
       <el-col :span="4">
         <el-input v-model="item.startEndMon" placeholder="起止年月(年.月--年.月)" />
       </el-col>
