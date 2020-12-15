@@ -2,330 +2,304 @@
   <div class="app-container">
     <div class="g-title">完善信息</div>
 
-    <el-form :model="editForm" label-width="40%" style="width: 100%;align-content: center;display: contents">
-      <div style="border: 1px solid seagreen;width: 150px;height: 200px;position: absolute; right:20px;">
 
-        <img :src="signature" alt="未上传图片" style="width: 150px;height: 200px;z-index: 99;position: absolute;" @click="sctp">
+    <table class="content">
+      <tr height = "30" >
+        <td colspan="5" style="font-size: 16px;font-weight: bold;color: #304156 ">基本信息</td>
+      </tr>
+      <tr height = "30" >
+        <td colspan="1" >姓名</td>
+        <td colspan="1">
+          <el-input v-model="editForm.perName" style="width: 90%" />
+        </td>
+        <td colspan="1" >性别</td>
+        <td colspan="1">
+          <el-select v-model="editForm.sex" style="width: 90%;" placeholder="请选择">
+            <el-option
+              v-for="item in sexList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select>
+        </td>
+        <td colspan="1" rowspan="5" width ="120px" height="250px" >
+          <img :src="signature" alt="未上传图片"   style="width: 200px;height: 200px">
+                <fileupload
+                  url="/web/uploadImageFileNew"
+                  accepttype=".jpg"
+                  @successcallback="onSuccess"
+                  @preview="onPreview"
+                >上传图片
+                </fileupload>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1" >出生日期</td>
+        <td colspan="1">
+          <el-date-picker
+            v-model="editForm.birthday"
+            type="date"
+            style="width: 90%"
+            value-format="yyyy-MM-dd"
+            placeholder="选择日期时间"
+          />
+        </td>
+        <td colspan="1" >证件号码</td>
+        <td colspan="1">
+          <el-input v-model="editForm.perIdCard" style="width: 90%" disabled />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1" >民族</td>
+        <td colspan="1">
+          <el-select v-model="editForm.peopleCode" style="width: 90%" placeholder="请选择">
+            <el-option
+              v-for="item in peopleCodeList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+              style="width: 90%"
+            />
+          </el-select>
+        </td>
+        <td colspan="1" >政治面貌</td>
+        <td colspan="1">
+          <el-select v-model="editForm.politicalStatus" style="width: 90%" placeholder="请选择">
+            <el-option
+              v-for="item in politicalStatusList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1" >籍贯</td>
+        <td colspan="1">
+          <el-input v-model="editForm.hometown" style="width: 90%" />
+        </td>
+        <td colspan="1" >工作单位所在地</td>
+        <td colspan="1">
+          <el-select v-model="editForm.province" style="width: 45%" placeholder="请选择" @change="getCity">
+            <el-option
+              v-for="item in provinceList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select><el-select v-model="editForm.city" style="width: 45%" placeholder="请选择">
+          <el-option
+            v-for="item in cityList"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          />
+        </el-select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1" >工作单位名称</td>
+        <td colspan="1">
+          <el-input v-model="editForm.workplaceName" style="width: 90%" />
+        </td>
+        <td colspan="1" >职称</td>
+        <td colspan="1">
+          <el-select v-model="editForm.grade" style="width: 90%" placeholder="请选择">
+            <el-option
+              v-for="item in gradeList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1" >邮政编码</td>
+        <td colspan="1">
+          <el-input v-model="editForm.postalcode" style="width: 90%" />
+        </td>
+        <td colspan="1" >通讯地址</td>
+        <td colspan="2">
+          <el-input v-model="editForm.address" style="width: 90%" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1" >固定电话</td>
+        <td colspan="1">
+          <el-input v-model="editForm.telephone" style="width: 90%" />
+        </td>
+        <td colspan="1" >移动电话</td>
+        <td colspan="2">
+          <el-input v-model="editForm.mobilephone" style="width: 90%"  />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1" >电子邮箱</td>
+        <td colspan="1">
+          <el-input v-model="editForm.email" style="width: 90%"  />
+        </td>
+        <td colspan="1" >从事专业</td>
+        <td colspan="2">
+          <el-input v-model="editForm.profession" style="width: 90%" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1" >本科学习形式</td>
+        <td colspan="1">
+          <el-select v-model="editForm.bachelorStudy" style="width: 90%" placeholder="请选择">
+            <el-option
+              v-for="item in bachelorStudyList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select>
+        </td>
+        <td colspan="1" >获学士学位专业</td>
+        <td colspan="2">
+          <el-select v-model="editForm.bachelorMajor" style="width: 90%" placeholder="请选择">
+            <el-option
+              v-for="item in bachelorMajorList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select>
+        </td>
+      </tr>
 
-      </div>
-      <fileupload
-        url="/web/uploadImageFileNew"
-        accepttype=".jpg"
-        style="position: absolute; right:60px;top: 320px;z-index: 99;"
-        @successcallback="onSuccess"
-        @preview="onPreview"
-      >上传图片
-      </fileupload>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="姓名" prop="groupName">
-            <el-input v-model="editForm.perName" style="width: 200px;" />
-          </el-form-item>
-        </el-col>
-        <el-col :span="9">
-          <el-form-item style="margin-left: 100px;" label="性别">
-            <el-select v-model="editForm.sex" style="width: 200px" placeholder="请选择">
-              <el-option
-                v-for="item in sexList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </el-form-item>
-        </el-col>
+      <tr>
+        <td colspan="1" >硕士毕业学校</td>
+        <td colspan="1">
+          <el-select v-model="editForm.gradSchool" style="width: 90%" placeholder="请选择">
+            <el-option
+              v-for="item in gradSchoolList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select>
+        </td>
+        <td colspan="1" >硕士毕业专业</td>
+        <td colspan="2">
+          <el-select v-model="editForm.gradMajor" style="width: 90%" placeholder="请选择">
+            <el-option
+              v-for="item in gradMajorList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select>
+        </td>
+      </tr>
 
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="出生日期" prop="groupName">
-            <el-date-picker
-              v-model="editForm.birthday"
-              type="date"
-              value-format="yyyy-MM-dd"
-              placeholder="选择日期时间"
-              style="width: 200px"
+      <tr>
+        <td colspan="1" >毕业专业备注</td>
+        <td colspan="1">
+          <el-input v-model="editForm.majorNote" style="width: 90%" />
+        </td>
+        <td colspan="1" >硕士毕业年月</td>
+        <td colspan="2">
+          <el-date-picker
+            v-model="editForm.gradDate"
+            type="date"
+            value-format="yyyy-MM-dd"
+            placeholder="选择日期时间"
+            style="width: 90%"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="1" >获硕士学位方式</td>
+        <td colspan="1">
+          <el-select v-model="editForm.masterWay" style="width: 90%" placeholder="请选择">
+            <el-option
+              v-for="item in masterWayList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
             />
-          </el-form-item>
-        </el-col>
-        <el-col :span="9">
-          <el-form-item style="margin-left: 100px;" label="证件号码">
-            <el-input v-model="editForm.perIdCard" style="width: 200px;" disabled />
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="民族" prop="groupName">
-            <el-select v-model="editForm.peopleCode" style="width: 200px" placeholder="请选择">
-              <el-option
-                v-for="item in peopleCodeList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </el-form-item>
-        </el-col>
-        <el-col :span="9">
-          <el-form-item style="margin-left: 100px;" label="政治面貌">
-            <el-select v-model="editForm.politicalStatus" style="width: 200px" placeholder="请选择">
-              <el-option
-                v-for="item in politicalStatusList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="籍贯" prop="groupName">
-            <el-input v-model="editForm.hometown" style="width: 200px" />
-          </el-form-item>
-        </el-col>
-        <el-col :span="9">
-          <el-form-item style="margin-left: 100px;" label="工作单位所在地">
-            <el-select v-model="editForm.province" style="width: 200px" placeholder="请选择" @change="getCity">
-              <el-option
-                v-for="item in provinceList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select><el-select v-model="editForm.city" style="width: 200px" placeholder="请选择">
-              <el-option
-                v-for="item in cityList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="工作单位名称" prop="groupName">
-            <el-input v-model="editForm.workplaceName" style="width: 200px" />
-          </el-form-item>
-        </el-col>
-        <el-col :span="9">
-          <el-form-item style="margin-left: 100px;" label="职称">
-            <el-select v-model="editForm.grade" style="width: 200px" placeholder="请选择">
-              <el-option
-                v-for="item in gradeList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="通讯地址" prop="groupName">
-            <el-input v-model="editForm.address" style="width: 200px" />
-          </el-form-item>
-        </el-col>
-        <el-col :span="9">
-          <el-form-item style="margin-left: 100px;" label="邮政编码">
-            <el-input v-model="editForm.postalcode" style="width: 200px" />
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="固定电话" prop="groupName">
-            <el-input v-model="editForm.telephone" style="width: 200px" />
-          </el-form-item>
-        </el-col>
-        <el-col :span="9">
-          <el-form-item style="margin-left: 100px;" label="移动电话">
-            <el-input v-model="editForm.mobilephone" style="width: 200px" />
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="电子邮箱" prop="groupName">
-            <el-input v-model="editForm.email" style="width: 200px" />
-          </el-form-item>
-        </el-col>
-        <el-col :span="9">
-          <el-form-item style="margin-left: 100px;" label="从事专业">
-            <el-input v-model="editForm.profession" style="width: 200px" />
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="本科学习形式" prop="groupName">
-            <el-select v-model="editForm.bachelorStudy" style="width: 200px" placeholder="请选择">
-              <el-option
-                v-for="item in bachelorStudyList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </el-form-item>
-        </el-col>
-        <el-col :span="9">
-          <el-form-item style="margin-left: 100px;" label="获学士学位专业">
-            <el-select v-model="editForm.bachelorMajor" style="width: 200px" placeholder="请选择">
-              <el-option
-                v-for="item in bachelorMajorList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="硕士毕业学校" prop="groupName">
-            <el-select v-model="editForm.gradSchool" style="width: 200px" placeholder="请选择">
-              <el-option
-                v-for="item in gradSchoolList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="硕士毕业专业" prop="groupName">
-            <el-select v-model="editForm.gradMajor" style="width: 200px" placeholder="请选择">
-              <el-option
-                v-for="item in gradMajorList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </el-form-item>
-        </el-col>
-        <el-col :span="9">
-          <el-form-item style="margin-left: 100px;" label="毕业专业备注">
-            <el-input v-model="editForm.majorNote" style="width: 200px" />
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="硕士毕业年月" prop="groupName">
-            <el-date-picker
-              v-model="editForm.gradDate"
-              type="date"
-              value-format="yyyy-MM-dd"
-              placeholder="选择日期时间"
-              style="width: 200px"
+          </el-select>
+        </td>
+        <td colspan="1" >最后学历</td>
+        <td colspan="2">
+          <el-select v-model="editForm.lastExperience" style="width: 90%" placeholder="请选择">
+            <el-option
+              v-for="item in lastExperienceList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
             />
-          </el-form-item>
-        </el-col>
-        <el-col :span="9">
-          <el-form-item style="margin-left: 100px;" label="获硕士学位方式">
-            <el-select v-model="editForm.masterWay" style="width: 200px" placeholder="请选择">
-              <el-option
-                v-for="item in masterWayList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="最后学历" prop="groupName">
-            <el-select v-model="editForm.lastExperience" style="width: 200px" placeholder="请选择">
-              <el-option
-                v-for="item in lastExperienceList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </el-form-item>
-        </el-col>
-        <el-col :span="9">
-          <el-form-item style="margin-left: 100px;" label="最后学位">
-            <el-select v-model="editForm.lastDegree" style="width: 200px" placeholder="请选择">
-              <el-option
-                v-for="item in lastDegreeList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="报考专业" prop="groupName">
-            <el-select v-model="editForm.applyMajor" style="width: 200px" placeholder="请选择" @change="getTutor">
-              <el-option
-                v-for="item in applyMajorList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </el-form-item>
-        </el-col>
-        <el-col :span="9">
-          <el-form-item style="margin-left: 100px;" label="报考语言">
-            <el-input style="width: 200px" value="英语" disabled />
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="报考博导" prop="groupName">
-            <el-select v-model="editForm.applyMajorTutor" style="width: 200px" @change="getDirection">
-              <el-option
-                v-for="item in applyMajorTutorList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="研究方向" prop="groupName">
-            <el-input v-model="editForm.direction" style="width: 200px" disabled />
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="9">
-          <el-form-item label="发表文章情况">
-            <el-input
-              v-model="editForm.articles"
-              style="width: 600px"
-              :rules=" [ { min: 0, max:2000, message: '长度小于2000字符', trigger: 'blur' }]"
-              placeholder="限填写一篇"
-              type="textarea"
-              :autosize="{ minRows: 8,maxRows: 12}"
+          </el-select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1" >最后学位</td>
+        <td colspan="1">
+          <el-select v-model="editForm.lastDegree" style="width: 90%" placeholder="请选择">
+            <el-option
+              v-for="item in lastDegreeList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
             />
-          </el-form-item>
-        </el-col>
-      </el-row>
-    </el-form>
+          </el-select>
+        </td>
+        <td colspan="1" >报考专业</td>
+        <td colspan="2">
+          <el-select v-model="editForm.applyMajor" style="width: 90%" placeholder="请选择" @change="getTutor">
+            <el-option
+              v-for="item in applyMajorList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="1" >报考语言</td>
+        <td colspan="1">
+          <el-input style="width: 90%" value="英语" disabled />
+        </td>
+        <td colspan="1" >报考博导</td>
+        <td colspan="2">
+          <el-select v-model="editForm.applyMajorTutor" style="width: 90%" @change="getDirection">
+            <el-option
+              v-for="item in applyMajorTutorList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="1" >博导研究方向</td>
+        <td colspan="4">
+          <el-input v-model="editForm.direction" style="width: 90%" disabled />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1" >发表文章情况</td>
+        <td colspan="4">
+          <el-input
+            v-model="editForm.articles"
+            style="width:90%"
+            :rules=" [ { min: 0, max:2000, message: '长度小于2000字符', trigger: 'blur' }]"
+            placeholder="限填写一篇"
+            type="textarea"
+            :autosize="{ minRows: 8,maxRows: 12}"
+          />
+        </td>
+      </tr>
+    </table>
 
     <div class="g-title">个人简历
       <el-button
@@ -340,6 +314,7 @@
       >添加一条
       </el-button>
     </div>
+
     <div v-for="(item,index) in editForm.resume" style="width:100%;display: flex;align-items: center;justify-content: space-between;margin-bottom: 10px;">
       <el-col :span="4">
         <el-input v-model="item.startEndMon" placeholder="起止年月(年.月--年.月)" />
