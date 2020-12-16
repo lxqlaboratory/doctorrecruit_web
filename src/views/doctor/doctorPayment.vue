@@ -19,8 +19,11 @@
     </table>
     <br>
 
-    <div align="center" style="font-size: 20px;font-weight: bold;color: darkred ">
-      <label>缴费状态:</label>
+    <div align="center" style="font-size: 20px;font-weight: bold;color: darkred " v-if="form.feeState === 2">
+      <label>缴费状态: 缴费成功</label>
+    </div>
+    <div align="center" style="font-size: 20px;font-weight: bold;color: darkred " v-else>
+      <label>缴费状态: 未缴费</label>
     </div>
     <div style="border: 1px solid #336699;margin-left: 10%;margin-right: 5%;"><br>
       <el-form ref="form" :model="form" label-width="40%" >
@@ -36,13 +39,33 @@
             </el-form-item>
           </el-col>
         </el-row>
+
+        <el-row v-if="form.feeState === 2">
+          <el-col :span="11">
+            <el-form-item label="缴费类型：" prop="groupName">
+              <el-input style="width: 200px;" v-model="form.feeType" disabled />
+            </el-form-item>
+          </el-col>
+          <el-col :span="11">
+            <el-form-item label="缴费时间：" prop="groupName">
+              <el-input style="width: 200px;" v-model="form.feeTime" disabled />
+            </el-form-item>
+          </el-col>
+        </el-row>
+
         <el-row>
           <el-col :span="11">
             <el-form-item label="身份证号" prop="groupName">
               <el-input style="width: 200px;" v-model="form.perIdCard" disabled />
             </el-form-item>
           </el-col>
+          <el-col :span="11" v-if="form.feeState === 2">
+            <el-form-item label="订单号：" prop="groupName">
+              <el-input style="width: 200px;" v-model="form.orderNum" disabled />
+            </el-form-item>
+          </el-col>
         </el-row>
+
         <el-row>
           <el-col :span="11">
             <el-form-item label="应缴金额" prop="groupName">
@@ -67,7 +90,7 @@
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row>
+        <el-row v-if="form.feeState !== 2">
           <el-col :span="17">
             <el-form-item align="center">
               <el-button type="primary" @click="submit()">提交</el-button>
@@ -90,10 +113,14 @@ export default {
         applyNum: '',
         arrearNum: '',
         feeNum: '',
+        feeType: '',
+        feeTime: '',
+        orderNum: '',
         paidFeeNum: '',
         payType: '',
         perIdCard: '',
         perName: '',
+        feeState: '',
         systemState: ''
       }
 
