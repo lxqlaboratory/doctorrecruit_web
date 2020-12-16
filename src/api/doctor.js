@@ -161,6 +161,14 @@ export function doctorRecruitSubmit(data) {
     data: data
   })
 }
+
+export function getPaymentUserInfo(data) {
+  return request({
+    url: '/pay/getPaymentUserInfo',
+    method: 'POST',
+    data: data
+  })
+}
 export function getScores() {
   return request({
     url: '/web/getScores',
